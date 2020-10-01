@@ -1,4 +1,4 @@
-package edu.csce4623.eaduran.myapplication;
+package edu.csce4623.eaduran.covid_19calculator;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("edu.csce4623.eaduran.myapplication", appContext.getPackageName());
+        assertEquals("edu.csce4623.eaduran.covid_19calculator", appContext.getPackageName());
     }
 }

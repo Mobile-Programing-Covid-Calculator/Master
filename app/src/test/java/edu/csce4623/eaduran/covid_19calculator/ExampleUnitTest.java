@@ -1,4 +1,4 @@
-package edu.csce4623.eaduran.myapplication;
+package edu.csce4623.eaduran.covid_19calculator;
 
 import org.junit.Test;
 

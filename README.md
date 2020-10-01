@@ -1,2 +1,0 @@
-# Master
-Our final project
