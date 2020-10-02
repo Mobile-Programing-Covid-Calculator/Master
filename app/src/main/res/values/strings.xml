@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Covid-19 Calculator</string>
+    <string name="welcome_message">Welcome to Covid-19 Risk Calculator</string>
+    <string name="disclaimer">Disclaimer....</string>
+    <string name="preselected">Pre-Selected Scenario</string>
+    <string name="newScenario">Create New Scenario</string>
+    <string name="FAQ">FAQ / Resources</string>
 </resources>
