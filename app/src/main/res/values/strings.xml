@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">Covid-19 Calculator</string>
     <string name="welcome_message">Welcome to Covid-19 Risk Calculator</string>
-    <string name="disclaimer">Disclaimer....</string>
+    <string name="disclaimer">Disclaimer</string>
     <string name="preselected">Pre-Selected Scenario</string>
     <string name="newScenario">Create New Scenario</string>
     <string name="FAQ">FAQ / Resources</string>
+    <string name="disclaimerText">In this application we provide our best estimate based on the best
+        information available to us, even when that evidence is not entirely conclusive or accurate.
+        We have read a lot of research written by experts, however we ourselves are not experts on
+        this topic. There is still a lot of uncertainty about COVID-19 and the ways that it is being
+        dealt with are rapidly changing. Do not rely on this tool for any medical advice. Please
+        continue to follow government guidance. Please use this application at your own risk!</string>
+    <string name="okButton">OK</string>
 </resources>
