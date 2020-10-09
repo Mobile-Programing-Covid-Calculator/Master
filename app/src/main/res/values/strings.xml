@@ -15,6 +15,7 @@
     <string name="location_message">First, please select your location:</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
+    <string name="calculate_risk">"Let's calculate your risk:"</string>
 
 
     <string-array name="counties">
