@@ -8,10 +8,11 @@ import android.view.View;
 import android.widget.Button;
 
 public class disclaimer_screen extends AppCompatActivity {
-    private Button button;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Button button;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disclaimer_screen);
         button = findViewById(R.id.okButton);

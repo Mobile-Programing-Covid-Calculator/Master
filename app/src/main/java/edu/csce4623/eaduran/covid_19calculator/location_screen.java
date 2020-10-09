@@ -9,13 +9,13 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class location_screen extends AppCompatActivity {
+    //private Button button;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_screen);
-        Button backButton = (Button) findViewById(R.id.backButton);
+      //  Button backButton = (Button) findViewById(R.id.backButton);
        // Spinner stateSpinner = (Spinner) findViewById(R.id.state_spinner);
 
        // ArrayAdapter<String> stateAdapter = new ArrayAdapter<>(location_screen.this,

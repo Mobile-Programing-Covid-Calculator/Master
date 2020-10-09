@@ -8,10 +8,11 @@ import android.view.View;
 import android.widget.Button;
 
 public class welcome_screen extends AppCompatActivity {
-    private Button button;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Button button;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
         button = findViewById(R.id.preSelectedButton);
@@ -23,7 +24,7 @@ public class welcome_screen extends AppCompatActivity {
         });
     }
     public void openLocationScreen(){
-        Intent intent = new Intent(this,location_screen.class);
+        Intent intent = new Intent(this, location_screen.class);
         startActivity(intent);
     }
 }
