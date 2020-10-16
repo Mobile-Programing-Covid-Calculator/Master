@@ -12,17 +12,26 @@ public class welcome_screen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Button button;
+        Button button1;
+        Button button2;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
-        button = findViewById(R.id.preSelectedButton);
-        button.setOnClickListener(new View.OnClickListener() {
+        button1 = findViewById(R.id.preSelectedButton);
+        button2 = findViewById(R.id.newScenario);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLocationScreen();
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openLocationScreen();
             }
         });
     }
+
     public void openLocationScreen(){
         Intent intent = new Intent(this, location_screen.class);
         startActivity(intent);
