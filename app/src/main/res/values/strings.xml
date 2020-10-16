@@ -16,6 +16,7 @@
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
     <string name="calculate_risk">"Let's calculate your risk:"</string>
+    <string name="num_people">"How many people will be around?"</string>
 
 
     <string-array name="counties">
