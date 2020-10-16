@@ -1,5 +1,6 @@
 package edu.csce4623.eaduran.covid_19calculator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -22,5 +23,15 @@ public class location_screen extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.states));
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         stateSpinner.setAdapter(stateAdapter);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWelcomeScreen();
+            }
+        });
+    }
+    public void openWelcomeScreen(){
+        Intent intent = new Intent(this,welcome_screen.class);
+        startActivity(intent);
     }
 }
