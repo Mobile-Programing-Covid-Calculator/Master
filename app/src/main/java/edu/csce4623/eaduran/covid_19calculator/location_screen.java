@@ -29,9 +29,22 @@ public class location_screen extends AppCompatActivity {
                 openWelcomeScreen();
             }
         });
+
+
+        Button submit = findViewById(R.id.location_submit);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRiskScreen();
+            }
+        });
     }
     public void openWelcomeScreen(){
         Intent intent = new Intent(this,welcome_screen.class);
+        startActivity(intent);
+    }
+    public void openRiskScreen(){
+        Intent intent = new Intent(this,risk_screen.class);
         startActivity(intent);
     }
 }
