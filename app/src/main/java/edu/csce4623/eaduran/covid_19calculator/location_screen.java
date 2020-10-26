@@ -31,7 +31,6 @@ public class location_screen extends AppCompatActivity {
             }
         });
 
-
         Button submit = findViewById(R.id.location_submit);
 
         submit.setOnClickListener(new View.OnClickListener() {

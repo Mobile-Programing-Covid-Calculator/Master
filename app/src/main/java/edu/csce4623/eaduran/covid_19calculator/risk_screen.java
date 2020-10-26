@@ -12,22 +12,19 @@ public class risk_screen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Button back = findViewById(R.id.backButton);
-        Button submit = findViewById(R.id.location_submit);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_risk_screen);
-
-        back.setOnClickListener(new View.OnClickListener() {
+        Button back2 = findViewById(R.id.backButton2);
+        Button submit = findViewById(R.id.location_submit);
+        back2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openLocationScreen();
             }
         });
-
     }
-
     public void openLocationScreen(){
-        Intent intent = new Intent(this, location_screen.class);
+        Intent intent = new Intent(this,location_screen.class);
         startActivity(intent);
     }
 }
