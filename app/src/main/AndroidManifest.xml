@@ -16,6 +16,7 @@
             </intent-filter></activity>
         <activity android:name=".welcome_screen"></activity>
         <activity android:name=".location_screen"></activity>
+        <activity android:name=".risk_screen"></activity>
     </application>
 
 </manifest>

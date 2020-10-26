@@ -23,15 +23,30 @@ public class location_screen extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.states));
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         stateSpinner.setAdapter(stateAdapter);
+        
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openWelcomeScreen();
             }
         });
+
+
+        Button submit = findViewById(R.id.location_submit);
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRiskScreen();
+            }
+        });
     }
     public void openWelcomeScreen(){
         Intent intent = new Intent(this,welcome_screen.class);
+        startActivity(intent);
+    }
+    public void openRiskScreen(){
+        Intent intent = new Intent(this,risk_screen.class);
         startActivity(intent);
     }
 }
