@@ -23,6 +23,7 @@ public class location_screen extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.states));
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         stateSpinner.setAdapter(stateAdapter);
+        
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +33,7 @@ public class location_screen extends AppCompatActivity {
 
 
         Button submit = findViewById(R.id.location_submit);
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
