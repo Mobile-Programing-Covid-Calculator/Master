@@ -17,6 +17,13 @@
     <string name="back">BACK</string>
     <string name="calculate_risk">"Let's calculate your risk:"</string>
     <string name="num_people">"How many people will be around?"</string>
+    <string name="results">Results</string>
+    <string name="results_microcovids">~#### microCOVIDs*</string>
+    <string name="results_risk">How risky is this?</string>
+    <string name="results_risk2">This is riskPercentage risky for you.</string>
+    <string name="results_microcovids2">*1 microCOVID = a one-in-a-million chance of getting COVID.</string>
+    <string name="newtestButton">Start New Test</string>
+    <string name="riskAllocation">Risk allocation: riskAllocationPercentage</string>
 
 
     <string-array name="counties">
