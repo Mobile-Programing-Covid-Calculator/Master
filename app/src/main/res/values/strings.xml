@@ -15,8 +15,8 @@
     <string name="location_message">First, please select your location:</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
-    <string name="calculate_risk">"Let's calculate your risk:"</string>
-    <string name="num_people">"How many people will be around?"</string>
+    <string name="calculate_risk">Calculating your risk:</string>
+    <string name="num_people">How many people will be around?</string>
     <string name="results">Results</string>
     <string name="results_microcovids">~#### microCOVIDs*</string>
     <string name="results_risk">How risky is this?</string>
@@ -24,6 +24,7 @@
     <string name="results_microcovids2">*1 microCOVID = a one-in-a-million chance of getting COVID.</string>
     <string name="newtestButton">Start New Test</string>
     <string name="riskAllocation">Risk allocation: riskAllocationPercentage</string>
+    <string name="riskProfile">What is the person(s) Risk Profile?</string>
 
 
     <string-array name="counties">
@@ -83,5 +84,24 @@
         <item>Wisconsin</item>
         <item>Wyoming</item>
     </string-array>
+
+    <string-array name="riskProfiles">
+        <item>Please select one...</item>
+        <item>An average person in your area</item>
+        <item>An essential or front-line worker in your area</item>
+        <item>Someone in your area that is not an essential or front-line worker</item>
+        <item>Lives alone and only grocery shops</item>
+        <item>Lives with partner, both of whom only grocery shop</item>
+        <item>In a closed pod of 4 people(who do not go to work or socialize)</item>
+        <item>In a closed pod of 10 people(who do not go to work or socialize)</item>
+        <item>In a closed pod of 20 people(who do not go to work or socialize)</item>
+        <item>Has 1 close contact(Incl. roommates) who socializes but does not work</item>
+        <item>Has 4 close contacts(Incl. roommates) who socialize but do not work</item>
+        <item>Has 10 close contacts(Incl. roommates) who socialize but do not work</item>
+        <item>Has 1 close contact(Incl. roommates) who is an essential worker</item>
+        <item>Goes to bars regularly</item>
+        <item>Currently infected with COVID-19</item>
+    </string-array>
+
 
 </resources>
