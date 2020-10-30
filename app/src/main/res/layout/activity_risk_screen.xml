@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/newtestButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="401dp"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/welcome_message3" />
 
     <TextView
-        android:id="@+id/numPeople"
+        android:id="@+id/resultsMicrocovids"
         android:layout_width="275dp"
         android:layout_height="22dp"
         android:layout_marginStart="65dp"
@@ -52,7 +52,7 @@
         android:layout_marginBottom="303dp"
         android:text="@string/num_people"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/newtestButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_message3"
@@ -69,6 +69,6 @@
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numPeople" />
+        app:layout_constraintTop_toBottomOf="@+id/resultsMicrocovids" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
