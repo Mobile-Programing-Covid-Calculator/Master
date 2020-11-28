@@ -12,7 +12,7 @@
         dealt with are rapidly changing. Do not rely on this tool for any medical advice. Please
         continue to follow government guidance. Please use this application at your own risk!</string>
     <string name="okButton">OK</string>
-    <string name="location_message">First, please select your location:</string>
+    <string name="location_message">Please select your location:</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
     <string name="calculate_risk">Calculating your risk:</string>
