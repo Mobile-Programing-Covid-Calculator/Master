@@ -39,4 +39,6 @@ public class risk_screen extends AppCompatActivity {
         Intent intent = new Intent(this,location_screen.class);
         startActivity(intent);
     }
+
+    
 }
