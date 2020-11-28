@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000000">
 
     <TextView
         android:id="@+id/welcome_message3"
@@ -27,6 +28,7 @@
         android:id="@+id/backButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#00BCD4"
         android:text="@string/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="401dp"
+        android:background="#00BCD4"
         android:text="@string/submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -52,6 +55,7 @@
         android:layout_marginBottom="303dp"
         android:text="@string/num_people"
         android:textAlignment="center"
+        android:textColor="#00BCD4"
         app:layout_constraintBottom_toTopOf="@+id/newtestButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,8 +70,10 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="105dp"
         android:layout_marginBottom="5dp"
+        android:backgroundTint="#00BCD4"
         android:ems="10"
         android:inputType="number"
+        android:textColor="#00BCD4"
         app:layout_constraintBottom_toTopOf="@+id/riskRiskProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
@@ -83,6 +89,7 @@
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="15dp"
         android:text="@string/riskProfile"
+        android:textColor="#00BCD4"
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -97,6 +104,10 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="200dp"
+        android:backgroundTint="#FFFFFF"
+        android:foregroundTint="#FFFFFF"
+        android:textSize="20sp"
+        android:textColor="#00BCD4"
         app:layout_constraintBottom_toTopOf="@+id/newtestButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
