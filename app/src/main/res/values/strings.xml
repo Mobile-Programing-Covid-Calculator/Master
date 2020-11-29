@@ -16,7 +16,7 @@
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
     <string name="calculate_risk">Calculating your risk:</string>
-    <string name="num_people">How many people will be around?</string>
+    <string name="num_people">How many people will be near(within 15 feet) you?</string>
     <string name="results">Results</string>
     <string name="results_microcovids">~#### microCOVIDs*</string>
     <string name="results_risk">How risky is this?</string>
@@ -25,6 +25,11 @@
     <string name="newtestButton">Start New Test</string>
     <string name="riskAllocation">Risk allocation: riskAllocationPercentage</string>
     <string name="riskProfile">What is the person(s) Risk Profile?</string>
+    <string name="activities">What types of activities will be performed?</string>
+    <string name="amountOfTime">Duration (Minutes)</string>
+    <string name="avgdistance">How close are the nearby people, on average?</string>
+    <string name="activityTime">How long is the activity, in minutes?</string>
+
 
 
     <string-array name="counties">
@@ -101,6 +106,54 @@
         <item>Has 1 close contact(Incl. roommates) who is an essential worker</item>
         <item>Goes to bars regularly</item>
         <item>Currently infected with COVID-19</item>
+    </string-array>
+
+    <string-array name="interaction">
+        <item>Type of interaction...</item>
+        <item>Lots</item>
+        <item>Lots more</item>
+    </string-array>
+
+    <string-array name="ventilation">
+        <item>Ventilation....</item>
+        <item>Lots</item>
+        <item>Lots more</item>
+    </string-array>
+
+    <string-array name="distance">
+        <item>Distance apart...</item>
+        <item>Lots</item>
+        <item>Lots more</item>
+    </string-array>
+
+    <string-array name="averageDistance">
+        <item>Avg Distance apart...</item>
+        <item>Lots</item>
+        <item>Lots more</item>
+    </string-array>
+
+    <string-array name="yourMask">
+        <item>Mask</item>
+        <item>No Mask</item>
+        <item>Lots more</item>
+    </string-array>
+
+    <string-array name="theirMask">
+        <item>Mask N</item>
+        <item>No Mask</item>
+        <item>Lots more</item>
+    </string-array>
+
+    <string-array name="conversation">
+        <item>type of convo</item>
+        <item>No convo</item>
+        <item>Lots more</item>
+    </string-array>
+
+    <string-array name="tolerance">
+        <item>risk tolerance</item>
+        <item>No Mask</item>
+        <item>Lots more</item>
     </string-array>
 
 
