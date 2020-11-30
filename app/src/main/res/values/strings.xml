@@ -29,6 +29,8 @@
     <string name="amountOfTime">Duration (Minutes)</string>
     <string name="avgdistance">How close are the nearby people, on average?</string>
     <string name="activityTime">How long is the activity, in minutes?</string>
+    <string name="activities_title">Activities</string>
+
 
 
 
