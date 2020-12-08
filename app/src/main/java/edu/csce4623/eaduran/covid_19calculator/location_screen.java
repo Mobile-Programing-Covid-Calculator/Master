@@ -9,20 +9,69 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class location_screen extends AppCompatActivity {
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+public class location_screen extends AppCompatActivity implements Spinner.OnItemSelectedListener {
     //private Button button;
+    private Button backButton;
+    private Button submit;
+    public static Spinner stateSpinner;
+    public static Spinner countySpinner;
+    private ArrayAdapter<String> stateAdapter;
+    private ArrayAdapter<String> countyAdapter;
+    //arraylist for state spinner items
+    private ArrayList<String> states;
+    private String result = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_screen);
-        Button backButton = (Button) findViewById(R.id.backButton);
-        Spinner stateSpinner = (Spinner) findViewById(R.id.state_spinner);
 
-        ArrayAdapter<String> stateAdapter = new ArrayAdapter<>(location_screen.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.states));
+        //declaring buttons and spinners
+        backButton = (Button) findViewById(R.id.backButton);
+        submit = (Button) findViewById(R.id.location_submit);
+        stateSpinner = (Spinner) findViewById(R.id.state_spinner);
+        countySpinner = (Spinner) findViewById(R.id.county_spinner);
+
+        states = new ArrayList<String>();
+       // stateSpinner.setOnItemSelectedListener(this);
+
+
+        stateAdapter = new ArrayAdapter<>(location_screen.this,
+                android.R.layout.simple_list_item_1, R.id.state_spinner);
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         stateSpinner.setAdapter(stateAdapter);
+
+
+        countyAdapter = new ArrayAdapter<>(location_screen.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.counties));
+        countyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        countySpinner.setAdapter(countyAdapter);
         
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,15 +80,72 @@ public class location_screen extends AppCompatActivity {
             }
         });
 
-        Button submit = findViewById(R.id.location_submit);
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRiskScreen();
             }
         });
+        getData();
     }
+
+    private void getData(){
+        //Creating a string request
+        final String result = "";
+        StringRequest stringRequest = new StringRequest(Config.DATA_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        JSONArray j = null;
+                        try {
+                            //Parsing the fetched Json String to JSON Object
+
+
+                            //Storing the Array of JSON String to our JSON Array
+                            JSONArray json = new JSONArray(result);
+
+                            //Calling method getStudents to get the students from the JSON Array
+                            getStates(json);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+        //Creating a request queue
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        //Adding request to the queue
+        requestQueue.add(stringRequest);
+    }
+
+
+
+    private void getStates(JSONArray j){
+        //Traversing through all the items in the json array
+        for(int i=0;i<j.length();i++){
+            try {
+                //Getting json object
+                JSONObject json = j.getJSONObject(i);
+
+                //Adding the name of the student to array list
+                states.add(json.getString(Config.TAG_STATE));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        //Setting adapter to show the items in the spinner
+        stateSpinner.setAdapter(new ArrayAdapter<String>(location_screen.this, android.R.layout.simple_spinner_dropdown_item, states));
+    }
+
+
     public void openWelcomeScreen(){
         Intent intent = new Intent(this,welcome_screen.class);
         startActivity(intent);
@@ -47,5 +153,15 @@ public class location_screen extends AppCompatActivity {
     public void openRiskScreen(){
         Intent intent = new Intent(this,risk_screen.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
