@@ -33,7 +33,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class location_screen extends AppCompatActivity implements Spinner.OnItemSelectedListener, Callback<List<CovidInfo>> {
+public class location_screen extends AppCompatActivity implements Callback<List<CovidInfo>> {
     //private Button button;
     private Button backButton;
     private Button submit;
@@ -200,13 +200,13 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
         startActivity(intent);
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
+//    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) {
+//
+//    }
 }
