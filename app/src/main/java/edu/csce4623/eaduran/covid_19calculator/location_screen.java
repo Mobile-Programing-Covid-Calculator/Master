@@ -68,7 +68,7 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
 
 
         stateAdapter = new ArrayAdapter<>(location_screen.this,
-                android.R.layout.simple_list_item_1, R.id.state_spinner);
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.states));
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         stateSpinner.setAdapter(stateAdapter);
 
@@ -91,6 +91,7 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
                 openRiskScreen();
             }
         });
+        startQuery();
         //getData();
         startQuery();
     }
@@ -138,6 +139,13 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
         //covidInfoList = new ArrayList<CovidInfo>(response.body());
         if(!response.isSuccessful())
         {
+            CovidInfo covidInfo = null;
+            Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+           // Log.d("location_screen", covidInfo.getCounty());
+            
+
+        }
+        else {
             System.out.println(response.errorBody());
             Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
             //Log.d("location_screen", covidInfo.getState());
