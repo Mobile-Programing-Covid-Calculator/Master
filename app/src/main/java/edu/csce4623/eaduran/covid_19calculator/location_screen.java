@@ -12,6 +12,8 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +25,10 @@ import com.google.gson.GsonBuilder;
 
 //import edu.csce4623.eaduran.covid_19calculator.API.CovidInfo;
 //import edu.csce4623.eaduran.covid_19calculator.API.CovidInfoAPI;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
