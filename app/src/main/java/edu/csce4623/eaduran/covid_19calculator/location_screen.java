@@ -113,8 +113,9 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
     public void onResponse(Call<List<CovidInfo>> call, Response<List<CovidInfo>> response) {
         if(response.isSuccessful())
         {
+            //CovidInfo covidInfo;
             Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
-
+            //Log.d("location_screen", covidInfo.getCounty());
 
         }
         else {
