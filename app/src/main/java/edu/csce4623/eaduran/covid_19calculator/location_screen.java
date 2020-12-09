@@ -41,7 +41,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
         setContentView(R.layout.activity_location_screen);
         getJsonState();
         countiesList= new ArrayList<String>();
-        countiesList.add("Counties");
+        countiesList.add("Select your county");
 
         backButton = (Button) findViewById(R.id.backButton);
         submit = (Button) findViewById(R.id.location_submit);
