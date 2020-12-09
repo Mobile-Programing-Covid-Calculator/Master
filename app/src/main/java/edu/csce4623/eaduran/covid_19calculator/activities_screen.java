@@ -154,14 +154,14 @@ public class activities_screen extends AppCompatActivity {
         spinnerConversation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String text = getSpinnerConversation();
-
-                if(text=="Loud talking(shouting, talking over music, singing)[5x the risk]"){
-                    isBad=true;
-                    if(isBad==true){
-                        Log.d("TRUE!!!!!!!!!!!!", "SOOOOOOOO TRUEEE!!!!!!");
-                    }
-                }
+//                String text = getSpinnerConversation();
+//
+//                if(text=="Loud talking(shouting, talking over music, singing)[5x the risk]"){
+//                    isBad=true;
+//                    if(isBad==true){
+//                        Log.d("TRUE!!!!!!!!!!!!", "SOOOOOOOO TRUEEE!!!!!!");
+//                    }
+//                }
                 getSpinnerConversation();
 
 
@@ -243,16 +243,25 @@ public class activities_screen extends AppCompatActivity {
     }
 
     public void selectionPage(){
-        if(isBad==true){
-            openBadResultsPage();
+
+        //String text = getSpinnerConversation();
+       // Log.d("getSpinnerConvo", text);
+        int test = spinnerConversation.getSelectedItemPosition();
+        String testS = Integer.toString(test);
+        Log.d("TESTSSSSSSSSSSSSSSSSS: ", testS);
+        if(spinnerConversation.getSelectedItemPosition()==3){
+                openBadResultsPage();
+                Log.d("TRUE!!!!!!!!!!!!", "SOOOOOOOO TRUEEE!!!!!!");
+            }
+            else{
+                openGoodResultsPage();
+            }
+
         }
-        else{
-            openGoodResultsPage();
-        }
-    }
+
 
     public void openBadResultsPage(){
-        Intent intent = new Intent(this, results_screen_good.class);
+        Intent intent = new Intent(this, results_screen_bad.class);
         startActivity(intent);
         String temp = getDuration();
         Log.d("DURATION", getDuration());
