@@ -31,7 +31,7 @@
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_marginStart="131dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="130dp"
         android:layout_marginBottom="281dp"
         android:backgroundTint="#00BCD4"
@@ -40,7 +40,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/preSelectedButton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/FaqButton"
@@ -48,7 +49,7 @@
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_marginStart="131dp"
-        android:layout_marginTop="495dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="130dp"
         android:layout_marginBottom="158dp"
         android:backgroundTint="#00BCD4"
@@ -57,7 +58,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/newScenario"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/preSelectedButton"
@@ -65,15 +67,13 @@
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_marginStart="131dp"
-        android:layout_marginTop="245dp"
         android:layout_marginEnd="130dp"
-        android:layout_marginBottom="404dp"
+        android:layout_marginBottom="468dp"
         android:backgroundTint="#00BCD4"
         android:text="@string/preselected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

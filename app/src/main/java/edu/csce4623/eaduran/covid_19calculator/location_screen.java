@@ -101,7 +101,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
             inputStream.close();
             json= new String(buffer,"UTF-8");
             JSONArray jsonArray = new JSONArray(json);
-            countiesList.add("Counties");
+            countiesList.add("Select your county");
             for (int i =0; i< jsonArray.length()-1; i++){
                 JSONObject obj = jsonArray.getJSONObject(i);
                 if(obj.getString("state").equals(State)){
@@ -125,7 +125,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
             json= new String(buffer,"UTF-8");
             JSONArray jsonArray = new JSONArray(json);
             statesList= new ArrayList<String>();
-            statesList.add("States");
+            statesList.add("Select your state");
             for (int i =0; i< jsonArray.length()-1; i++){
                 JSONObject obj = jsonArray.getJSONObject(i);
                 JSONObject obj2 =jsonArray.getJSONObject(i+1);
@@ -155,7 +155,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
     public void openRiskScreen() {
         String state= getState();
         String county= getCounty();
-        if (state.equals("States") || county.equals("Counties")){
+        if (state.equals("Select your state") || county.equals("Select your county")){
             Toast.makeText(getApplicationContext(),"Please select a State and a County",Toast.LENGTH_LONG).show();
         }else {
             Intent intent = new Intent(this, risk_screen.class);
