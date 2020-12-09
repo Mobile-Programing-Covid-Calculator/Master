@@ -94,13 +94,6 @@ public class location_screen extends AppCompatActivity implements Callback<List<
 
     }
 
-//    void itemClicked(AdapterView<?> parent, View view, int position, long id) {
-//        Intent intent = new Intent(this, location_screen.class);
-//        intent.putExtra("state", covidInfoList.get(position).getState());
-//
-//        startActivity(intent);
-//    }
-
     //static final String BASE_URL = "https://api.covidactnow.org/"; /
     static final String BASE_URL = "https://api.covidactnow.org/v2/";
     //static final String BASE_URL = "https://jsonplaceholder.typicode.com/";
