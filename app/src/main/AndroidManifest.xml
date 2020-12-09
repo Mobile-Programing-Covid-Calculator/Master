@@ -29,6 +29,7 @@
         <activity android:name=".risk_screen"></activity>
         <activity android:name=".results_screen"></activity>
         <activity android:name=".activities_screen"></activity>
+        <activity android:name=".faq_screen"></activity>
     </application>
 
 </manifest>
