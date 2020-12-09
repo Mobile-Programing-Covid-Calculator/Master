@@ -18,10 +18,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data
-            android:name="com.android.covidApp.API_KEY"
-            android:value="d6f5ac0f7c0143b683aa50bf7bf163dd" />
-
 
         <activity android:name=".disclaimer_screen">
             <intent-filter>

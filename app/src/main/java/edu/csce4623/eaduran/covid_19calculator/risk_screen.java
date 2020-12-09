@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
+//import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,8 +24,11 @@ public class risk_screen extends AppCompatActivity {
         Button submit = findViewById(R.id.riskSubmit);
         Spinner spinnerRisk = (Spinner) findViewById(R.id.spinnerRiskProfile);
         Spinner spinnerDistance = (Spinner) findViewById(R.id.spinnerAvgDistance);
+
         EditText peopleNearby = (EditText) findViewById(R.id.riskNumPeopleInput);
         EditText minAroundPeople = (EditText) findViewById(R.id.riskNumPeopleInput2);
+
+
 
 
         //Set risk spinner
@@ -75,8 +78,10 @@ public class risk_screen extends AppCompatActivity {
 
     public void openActivitiesPage(){
         Intent intent = new Intent(this,activities_screen.class);
+
 //        intent.putExtra("numPeopleAround",getNumPeopleAround());
 //        intent.putExtra("getMinuteAroundPeople",getMinAroundPeople());
+
         startActivity(intent);
     }
 
