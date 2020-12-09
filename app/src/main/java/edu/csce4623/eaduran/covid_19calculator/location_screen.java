@@ -136,12 +136,26 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
         //covidInfoList = new ArrayList<CovidInfo>(response.body());
         if(!response.isSuccessful())
         {
+<<<<<<< HEAD
             System.out.println(response.errorBody());
             Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
             return;
         }
         else {
             Log.d("SUCCESS","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+=======
+            CovidInfo covidInfo = null;
+            Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+           // Log.d("location_screen", covidInfo.getCounty());
+            
+
+        }
+        else {
+            System.out.println(response.errorBody());
+            Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+            //Log.d("location_screen", covidInfo.getState());
+            return;
+>>>>>>> parent of be32c5b... Update location_screen.java
         }
         Debug.stopMethodTracing();
 
