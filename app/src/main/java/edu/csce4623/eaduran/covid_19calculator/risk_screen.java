@@ -6,10 +6,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-//import android.widget.EditText;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -132,17 +131,38 @@ public class risk_screen extends AppCompatActivity {
         Log.d("Minutes people around  ", minAround);
         return minAround;
     }
+    public String getRisk() {
+        String text = spinnerRisk.getSelectedItem().toString();
+        Log.d("Risk:    ", text);
+        return text;
+    }
+    public String getDistance() {
+        String text = spinnerDistance.getSelectedItem().toString();
+        Log.d("Distance:    ", text);
+        return text;
+    }
 
     public void openActivitiesPage(){
-        Intent intent = new Intent(this,activities_screen.class);
-        String temp = getNumPeopleAround();
-        String temp2 = getMinAroundPeople();
-        Log.d("numPeopleAround", temp);
-        Log.d("minAroundPeople", temp2);
-        intent.putExtra("numPeopleAround",getNumPeopleAround());
-        intent.putExtra("getMinuteAroundPeople",getMinAroundPeople());
+        String distance = getDistance();
+        String risk = getRisk();
+        String numPeople= getNumPeopleAround();
+        String minAroundPeople= getMinAroundPeople();
+        if (numPeople.equals("") || minAroundPeople.equals("")||
+                distance.equals("Avg Distance apart...")|| risk.equals("Please select one...")){
+            Toast.makeText(getApplicationContext(),"Please put inputs in all fields",Toast.LENGTH_LONG).show();
+        }else {
+            Intent intent = new Intent(this,activities_screen.class);
+            String temp = getNumPeopleAround();
+            String temp2 = getMinAroundPeople();
+            Log.d("numPeopleAround", temp);
+            Log.d("minAroundPeople", temp2);
+            intent.putExtra("numPeopleAround",getNumPeopleAround());
+            intent.putExtra("getMinuteAroundPeople",getMinAroundPeople());
+            intent.putExtra("getDistance",getDistance());
+            intent.putExtra("getRisk",getRisk());
+            startActivity(intent);
+        }
 
-        startActivity(intent);
     }
 
 }
