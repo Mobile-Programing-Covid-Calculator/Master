@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class results_screen extends AppCompatActivity {
     Button newTest;
-    Button faqResources;
+    Button btnFAQResults;
     Button backToRisk;
     private TextView riskNumPeople;
     private TextView resultsRisk2;
@@ -23,14 +23,14 @@ public class results_screen extends AppCompatActivity {
         setContentView(R.layout.activity_results_screen_good);
 
         newTest = findViewById(R.id.newtestButton);
-        faqResources = findViewById(R.id.resultsFAQButton);
+        btnFAQResults = findViewById(R.id.btnFAQResults);
         backToRisk = findViewById(R.id.backButton3);
 
         //Open FAQ/Resources page
-        faqResources.setOnClickListener(new View.OnClickListener() {
+        btnFAQResults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                openFaqScreen();
             }
         });
 
@@ -52,12 +52,12 @@ public class results_screen extends AppCompatActivity {
         Intent intent = new Intent(this,risk_screen.class);
         startActivity(intent);
     }
-    
 
 
-//    public void openFaqScreen(){
-//        Intent intent = new Intent(this,location_screen.class);
-//        startActivity(intent);
-//    }
+
+    public void openFaqScreen(){
+        Intent intent = new Intent(this,faq_screen.class);
+        startActivity(intent);
+    }
 
 }
