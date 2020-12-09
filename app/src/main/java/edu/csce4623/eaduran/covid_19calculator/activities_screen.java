@@ -2,6 +2,7 @@ package edu.csce4623.eaduran.covid_19calculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,6 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class activities_screen extends AppCompatActivity {
 
+    Button back;
+    Button submit;
+    Spinner spinnerInteraction;
+    Spinner spinnerVentilation;
+    Spinner spinnerDistance;
+    Spinner spinnerYourMask;
+    Spinner spinnerTheirMask;
+    Spinner spinnerConversation;
+    Spinner spinnerTolerance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,15 +28,15 @@ public class activities_screen extends AppCompatActivity {
         setContentView(R.layout.activity_activities_screen);
 
         //Globals
-        Button back = findViewById(R.id.backButtonActivites);
-        Button submit = findViewById(R.id.activitiesSubmit);
-        Spinner spinnerInteraction = (Spinner) findViewById(R.id.spinnerInteraction);
-        Spinner spinnerVentilation = (Spinner) findViewById(R.id.spinnerVentilation);
-        Spinner spinnerDistance = (Spinner) findViewById(R.id.spinnerDistance);
-        Spinner spinnerYourMask = (Spinner) findViewById(R.id.spinnerYourMask);
-        Spinner spinnerTheirMask = (Spinner) findViewById(R.id.spinnerTheirMask);
-        Spinner spinnerConversation = (Spinner) findViewById(R.id.spinnerConversation);
-        Spinner spinnerTolerance = (Spinner) findViewById(R.id.spinnerTolerance);
+        back = findViewById(R.id.backButtonActivites);
+        submit = findViewById(R.id.activitiesSubmit);
+        spinnerInteraction = (Spinner) findViewById(R.id.spinnerInteraction);
+        spinnerVentilation = (Spinner) findViewById(R.id.spinnerVentilation);
+        spinnerDistance = (Spinner) findViewById(R.id.spinnerDistance);
+        spinnerYourMask = (Spinner) findViewById(R.id.spinnerYourMask);
+        spinnerTheirMask = (Spinner) findViewById(R.id.spinnerTheirMask);
+        spinnerConversation = (Spinner) findViewById(R.id.spinnerConversation);
+        spinnerTolerance = (Spinner) findViewById(R.id.spinnerTolerance);
 
 
         //Set buttons
@@ -81,9 +91,56 @@ public class activities_screen extends AppCompatActivity {
         toleranceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTolerance.setAdapter(toleranceAdapter);
 
+if(toleranceAdapter!=null){
 
+}
 
     }
+    //Getters for spinners
+    public String getSpinnerInteraction() {
+        String text = spinnerInteraction.getSelectedItem().toString();
+        Log.d("SpinnerInteraction", text);
+        return text;
+    }
+
+    public String getSpinnerVentilation() {
+        String text = spinnerVentilation.getSelectedItem().toString();
+        Log.d("SpinnerVentilation", text);
+        return text;
+    }
+
+    public String getSpinnerDistance() {
+        String text = spinnerDistance.getSelectedItem().toString();
+        Log.d("SpinnerDistance", text);
+        return text;
+    }
+
+    public String getSpinnerYourMask() {
+        String text = spinnerYourMask.getSelectedItem().toString();
+        Log.d("SpinnerYourMask", text);
+        return text;
+    }
+
+    public String getSpinnerTheirMask() {
+        String text = spinnerTheirMask.getSelectedItem().toString();
+        Log.d("SpinnerTheirMask", text);
+        return text;
+    }
+
+    public String getSpinnerConversation() {
+        String text = spinnerConversation.getSelectedItem().toString();
+        Log.d("SpinnerConversation", text);
+        return text;
+    }
+
+    public String getSpinnerTolerance() {
+        String text = spinnerTolerance.getSelectedItem().toString();
+        Log.d("SpinnerTolerance", text);
+        return text;
+    }
+
+
+
 
     public void openResultsPage(){
         Intent intent = new Intent(this,results_screen.class);

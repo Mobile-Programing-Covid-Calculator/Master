@@ -12,12 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class risk_screen extends AppCompatActivity {
 
-    Button back = findViewById(R.id.backButton3);
-    Button submit = findViewById(R.id.riskSubmit);
-    Spinner spinnerRisk = (Spinner) findViewById(R.id.spinnerRiskProfile);
-    Spinner spinnerDistance = (Spinner) findViewById(R.id.spinnerAvgDistance);
-    EditText peopleNearby = (EditText) findViewById(R.id.riskNumPeopleInput);
-    EditText minAroundPeople = (EditText) findViewById(R.id.riskNumPeopleInput2);
+
 
 
     @Override
@@ -25,6 +20,12 @@ public class risk_screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_risk_screen);
         //Globals
+        Button back = findViewById(R.id.backButton3);
+        Button submit = findViewById(R.id.riskSubmit);
+        Spinner spinnerRisk = (Spinner) findViewById(R.id.spinnerRiskProfile);
+        Spinner spinnerDistance = (Spinner) findViewById(R.id.spinnerAvgDistance);
+        EditText peopleNearby = (EditText) findViewById(R.id.riskNumPeopleInput);
+        EditText minAroundPeople = (EditText) findViewById(R.id.riskNumPeopleInput2);
 
 
         //Set risk spinner
@@ -61,21 +62,21 @@ public class risk_screen extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public int getNumPeopleAround(){
-        int numPeople = Integer.parseInt(peopleNearby.getText().toString());
+//    public int getNumPeopleAround(){
+//        int numPeople = Integer.parseInt(peopleNearby.getText().toString());
+//
+//        return numPeople;
+//    }
 
-        return numPeople;
-    }
-
-    public int getMinAroundPeople(){
-        int minAround = Integer.parseInt(minAroundPeople.getText().toString());
-        return minAround;
-    }
+//    public int getMinAroundPeople(){
+//        int minAround = Integer.parseInt(minAroundPeople.getText().toString());
+//        return minAround;
+//    }
 
     public void openActivitiesPage(){
         Intent intent = new Intent(this,activities_screen.class);
-        intent.putExtra("numPeopleAround",getNumPeopleAround());
-        intent.putExtra("getMinuteAroundPeople",getMinAroundPeople());
+//        intent.putExtra("numPeopleAround",getNumPeopleAround());
+//        intent.putExtra("getMinuteAroundPeople",getMinAroundPeople());
         startActivity(intent);
     }
 
