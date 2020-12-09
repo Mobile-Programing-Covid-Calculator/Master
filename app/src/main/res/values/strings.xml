@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Covid-19 Calculator</string>
-    <string name="welcome_message">Welcome to Covid-19 Risk Calculator</string>
+    <string name="welcome_message">COVID-19 Risk Calculator</string>
     <string name="disclaimer">Disclaimer</string>
     <string name="preselected">Pre-Selected Scenario</string>
     <string name="newScenario">Create New Scenario</string>
@@ -16,7 +16,7 @@
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
     <string name="calculate_risk">Calculating your risk:</string>
-    <string name="num_people">How many people will be near(within 15 feet) you?</string>
+    <string name="num_people">How many people will be near you (within 15 feet)?</string>
     <string name="results">Results</string>
     <string name="results_microcovids">~#### microCOVIDs*</string>
     <string name="results_risk">How risky is this?</string>
@@ -27,8 +27,8 @@
     <string name="riskProfile">What is the person(s) Risk Profile?</string>
     <string name="activities">What types of activities will be performed?</string>
     <string name="amountOfTime">Duration (Minutes)</string>
-    <string name="avgdistance">How close are the nearby people, on average?</string>
-    <string name="activityTime">How long is the activity, in minutes?</string>
+    <string name="avgdistance">How close are the nearby people on average?</string>
+    <string name="activityTime">How long is the activity in minutes?</string>
     <string name="activities_title">Activities</string>
 
 
@@ -159,6 +159,7 @@
     </string-array>
 
     <string-array name="conversation">
+        <item>Conversation...</item>
         <item>Not talking(such as quietly riding the train)[1/5 the risk]</item>
         <item>Normal conversation[baseline risk]</item>
         <item>Loud talking(shouting, talking over music, singing)[5x the risk]</item>

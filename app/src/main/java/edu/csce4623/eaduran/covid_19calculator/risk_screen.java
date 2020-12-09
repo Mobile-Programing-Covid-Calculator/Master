@@ -2,6 +2,7 @@ package edu.csce4623.eaduran.covid_19calculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,12 +13,15 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class risk_screen extends AppCompatActivity {
-    private Button back ;
-    private  Button submit ;
-    private Spinner spinnerRisk ;
-    private  Spinner spinnerDistance ;
-    private  EditText peopleNearby ;
-    private  EditText minAroundPeople ;
+
+    //Globals
+    Button back;
+    Button submit;
+    Spinner spinnerRisk;
+    Spinner spinnerDistance;
+    EditText peopleNearby;
+    EditText minAroundPeople;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +32,11 @@ public class risk_screen extends AppCompatActivity {
         submit = findViewById(R.id.riskSubmit);
         spinnerRisk = (Spinner) findViewById(R.id.spinnerRiskProfile);
         spinnerDistance = (Spinner) findViewById(R.id.spinnerAvgDistance);
+
         peopleNearby = (EditText) findViewById(R.id.riskNumPeopleInput);
         minAroundPeople = (EditText) findViewById(R.id.riskNumPeopleInput2);
+
+
 
 
         //Set risk spinner
@@ -42,7 +49,7 @@ public class risk_screen extends AppCompatActivity {
         ArrayAdapter<String> riskAdapter = new ArrayAdapter<>(risk_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.riskProfiles));
         riskAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerRisk.setAdapter(riskAdapter);
+       spinnerRisk.setAdapter(riskAdapter);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +65,8 @@ public class risk_screen extends AppCompatActivity {
             }
         });
 
-
+//        getNumPeopleAround();
+//        getMinAroundPeople();
 
     }
     public void openLocationScreen(){
@@ -66,21 +74,27 @@ public class risk_screen extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public int getNumPeopleAround(){
-        int numPeople = Integer.parseInt(peopleNearby.getText().toString());
-
-        return numPeople;
+    public String getNumPeopleAround(){
+        String peopleNear = peopleNearby.getText().toString();
+        Log.d("Number of people:  ", peopleNear);
+        return peopleNear;
     }
 
-    public int getMinAroundPeople(){
-        int minAround = Integer.parseInt(minAroundPeople.getText().toString());
+    public String getMinAroundPeople(){
+        String minAround = minAroundPeople.getText().toString();
+        Log.d("Minutes people around  ", minAround);
         return minAround;
     }
 
     public void openActivitiesPage(){
         Intent intent = new Intent(this,activities_screen.class);
+        String temp = getNumPeopleAround();
+        String temp2 = getMinAroundPeople();
+        Log.d("numPeopleAround", temp);
+        Log.d("minAroundPeople", temp2);
         intent.putExtra("numPeopleAround",getNumPeopleAround());
         intent.putExtra("getMinuteAroundPeople",getMinAroundPeople());
+
         startActivity(intent);
     }
 

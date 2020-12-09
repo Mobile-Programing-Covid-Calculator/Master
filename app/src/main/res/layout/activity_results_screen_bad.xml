@@ -77,7 +77,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/resultsFAQButton"
+        android:id="@+id/btnFAQResults"
         android:layout_width="120dp"
         android:layout_height="52dp"
         android:layout_marginTop="404dp"

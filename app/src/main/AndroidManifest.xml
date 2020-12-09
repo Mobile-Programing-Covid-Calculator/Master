@@ -18,21 +18,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data
-            android:name="com.android.covidApp.API_KEY"
-            android:value="d6f5ac0f7c0143b683aa50bf7bf163dd" />
-
 
         <activity android:name=".disclaimer_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter></activity>
-        <activity android:name=".welcome_screen"/>
-        <activity android:name=".location_screen"/>
-        <activity android:name=".risk_screen" />
-        <activity android:name=".results_screen"/>
-        <activity android:name=".activities_screen"/>
+        <activity android:name=".welcome_screen"></activity>
+        <activity android:name=".location_screen"></activity>
+        <activity android:name=".risk_screen"></activity>
+        <activity android:name=".results_screen"></activity>
+        <activity android:name=".activities_screen"></activity>
+        <activity android:name=".faq_screen"></activity>
     </application>
 
 </manifest>
