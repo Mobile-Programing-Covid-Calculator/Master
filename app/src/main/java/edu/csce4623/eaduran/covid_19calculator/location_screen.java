@@ -2,35 +2,28 @@ package edu.csce4623.eaduran.covid_19calculator;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Debug;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
-import android.widget.AdapterView;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-//import edu.csce4623.eaduran.covid_19calculator.API.CovidInfo;
-//import edu.csce4623.eaduran.covid_19calculator.API.CovidInfoAPI;
-import okhttp3.OkHttpClient;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public class location_screen extends AppCompatActivity {//implements Callback<List<CovidInfo>> {
+import edu.csce4623.eaduran.covid_19calculator.API.CovidInfo;
+
+public class location_screen extends AppCompatActivity {
     //private Button button;
     private Button backButton;
     private Button submit;
@@ -50,6 +43,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_screen);
+        //getjson();
 
         //textView2 = findViewById(R.id.textView2);
         //declaring buttons and spinners
@@ -86,13 +80,35 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
                 openRiskScreen();
             }
         });
-        //startQuery();
+        
+    }
+
+    private void getjson() {
+        Log.d("HEREEE", "WE are HERE");
+        String json;
+        try {
+            InputStream inputStream= getAssets().open("covidact.json");
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+            json= new String(buffer,"UTF-8");
+            JSONArray jsonArray = new JSONArray(json);
+            for (int i =0; i< jsonArray.length(); i++){
+                JSONObject obj = jsonArray.getJSONObject(i);
+            }
+        } catch (IOException | JSONException e) {
+            Log.d("Failed","Error");
+            e.printStackTrace();
+        }
+
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-    }
+
     public void openWelcomeScreen(){
         Intent intent = new Intent(this,welcome_screen.class);
         startActivity(intent);

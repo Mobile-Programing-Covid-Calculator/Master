@@ -5,26 +5,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+//import android.widget.EditText;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class risk_screen extends AppCompatActivity {
-
-    Button back = findViewById(R.id.backButton3);
-    Button submit = findViewById(R.id.riskSubmit);
-    Spinner spinnerRisk = (Spinner) findViewById(R.id.spinnerRiskProfile);
-    Spinner spinnerDistance = (Spinner) findViewById(R.id.spinnerAvgDistance);
-    EditText peopleNearby = (EditText) findViewById(R.id.riskNumPeopleInput);
-    EditText minAroundPeople = (EditText) findViewById(R.id.riskNumPeopleInput2);
-
+    private Button back ;
+    private  Button submit ;
+    private Spinner spinnerRisk ;
+    private  Spinner spinnerDistance ;
+    private  EditText peopleNearby ;
+    private  EditText minAroundPeople ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_risk_screen);
         //Globals
+        back = findViewById(R.id.backButton3);
+        submit = findViewById(R.id.riskSubmit);
+        spinnerRisk = (Spinner) findViewById(R.id.spinnerRiskProfile);
+        spinnerDistance = (Spinner) findViewById(R.id.spinnerAvgDistance);
+        peopleNearby = (EditText) findViewById(R.id.riskNumPeopleInput);
+        minAroundPeople = (EditText) findViewById(R.id.riskNumPeopleInput2);
 
 
         //Set risk spinner
@@ -37,7 +42,7 @@ public class risk_screen extends AppCompatActivity {
         ArrayAdapter<String> riskAdapter = new ArrayAdapter<>(risk_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.riskProfiles));
         riskAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-       spinnerRisk.setAdapter(riskAdapter);
+        spinnerRisk.setAdapter(riskAdapter);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
