@@ -49,14 +49,14 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
 
     //covid info list
     ArrayList<CovidInfo> covidInfoList;
-    TextView textView2;
+    private TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_screen);
-        //Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
 
+        textView2 = findViewById(R.id.textView2);
         //declaring buttons and spinners
         backButton = (Button) findViewById(R.id.backButton);
         submit = (Button) findViewById(R.id.location_submit);
@@ -109,7 +109,9 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
 //        startActivity(intent);
 //    }
 
-    static final String BASE_URL = "https://api.covidactnow.org/";
+    //static final String BASE_URL = "https://api.covidactnow.org/"; /
+    static final String BASE_URL = "https://api.covidactnow.org/v2/";
+    //static final String BASE_URL = "https://jsonplaceholder.typicode.com/";
 
     //full URL
     //https://api.covidactnow.org/v2/counties.json?apiKey=d6f5ac0f7c0143b683aa50bf7bf163dd
@@ -156,11 +158,11 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
         List<CovidInfo> covidInfos = response.body();
 
         for (CovidInfo covidInfo : covidInfos) {
-            String content = "";
-            content += covidInfo.getState();
+            //String content = "";
+            //content += covidInfo.getState();
             //Log.d("location_screen_success", )
             Log.d("SUCCESS","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
-            textView2.append(content);
+            //textView2.append(content);
         }
 //        else {
 //

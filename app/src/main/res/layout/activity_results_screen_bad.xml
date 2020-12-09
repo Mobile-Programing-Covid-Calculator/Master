@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF0000">
+    <!--
+    <TextView
+        android:id="@+id/resultsRiskAllocation"
+        android:layout_width="275dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="184dp"
+        android:text="@string/riskAllocation"
+        android:textAlignment="center"
+        android:textColor="#978080"
+        app:layout_constraintBottom_toTopOf="@+id/resultsMIcrocovids2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultsRisk2"
+        app:layout_constraintVertical_bias="1.0" />
+-->
+
+    <TextView
+        android:id="@+id/resultsRiskResult2"
+        android:layout_width="373dp"
+        android:layout_height="152dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="32dp"
+        android:text="RISKY"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/newtestButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/riskNumPeople"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/welcome_message3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="61dp"
+        android:layout_marginBottom="571dp"
+        android:fontFamily="sans-serif-black"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/results"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.392" />
+
+    <Button
+        android:id="@+id/newtestButton"
+        android:layout_width="120dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="404dp"
+        android:background="#000000"
+        android:text="@string/newtestButton"
+        android:textColor="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.229"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_message3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/resultsFAQButton"
+        android:layout_width="120dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="404dp"
+        android:background="#000000"
+        android:text="@string/FAQ"
+        android:textColor="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.762"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_message3"
+        app:layout_constraintVertical_bias="0.0" />
+    <!--
+    <TextView
+        android:id="@+id/riskNumPeople"
+        android:layout_width="275dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="303dp"
+        android:text="@string/results_microcovids"
+        android:textAlignment="center"
+        android:textColor="#978080"
+        app:layout_constraintBottom_toTopOf="@+id/newtestButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_message3"
+        app:layout_constraintVertical_bias="0.0" />
+-->
+
+    <TextView
+        android:id="@+id/resultsRisk"
+        android:layout_width="275dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="208dp"
+        android:text="@string/results_risk"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/newtestButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/riskNumPeople"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="296dp"
+        android:layout_height="168dp"
+        app:layout_constraintBottom_toTopOf="@+id/resultsRisk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_message3"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/corona" />
+
+    <!--
+    <TextView
+        android:id="@+id/resultsRisk2"
+        android:layout_width="275dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="184dp"
+        android:text="@string/results_risk2"
+        android:textAlignment="center"
+        android:textColor="#978080"
+        app:layout_constraintBottom_toTopOf="@+id/newtestButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultsRisk" />
+-->
+    <!--
+    <TextView
+        android:id="@+id/resultsMIcrocovids2"
+        android:layout_width="284dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
+        android:text="@string/results_microcovids2"
+        android:textAlignment="center"
+        android:textColor="#978080"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newtestButton" />
+        -->
+</androidx.constraintlayout.widget.ConstraintLayout>
