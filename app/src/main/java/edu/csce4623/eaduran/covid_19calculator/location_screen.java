@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.widget.AdapterView;
 
@@ -24,7 +25,11 @@ import android.widget.AdapterView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import edu.csce4623.eaduran.covid_19calculator.API.CovidInfo;
 import edu.csce4623.eaduran.covid_19calculator.API.CovidInfoAPI;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -104,7 +109,6 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
 
     }
 
-<<<<<<< HEAD
     @Override
     public void onResponse(Call<List<CovidInfo>> call, Response<List<CovidInfo>> response) {
         if(response.isSuccessful())
@@ -123,8 +127,7 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
     public void onFailure(Call<List<CovidInfo>> call, Throwable t) {
         t.printStackTrace();
     }
-=======
->>>>>>> 75b6ec31ae379e3aa6794ec6d7be13326bdb278c
+
     private void getCountyData() {
 
     }

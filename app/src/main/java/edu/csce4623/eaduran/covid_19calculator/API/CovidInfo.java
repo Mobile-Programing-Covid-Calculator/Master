@@ -1,6 +1,6 @@
 package edu.csce4623.eaduran.covid_19calculator.API;
 
-public class covidInfo {
+public class CovidInfo {
 	private RiskLevels riskLevels;
 	private Actuals actuals;
 	private String country;
