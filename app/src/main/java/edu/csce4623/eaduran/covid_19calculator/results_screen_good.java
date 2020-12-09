@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class results_screen extends AppCompatActivity {
+public class results_screen_good extends AppCompatActivity {
     Button newTest;
     Button btnFAQResults;
     Button backToRisk;
@@ -20,10 +20,9 @@ public class results_screen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //if results of test are not risky then
+
             setContentView(R.layout.activity_results_screen_good);
-        //if results of test are risky then
-            //setContentView(R.layout.activity_results_screen_bad);
+
 
         newTest = findViewById(R.id.newtestButton);
         btnFAQResults = findViewById(R.id.btnFAQResults);
@@ -50,10 +49,7 @@ public class results_screen extends AppCompatActivity {
         Intent intent = new Intent(this,location_screen.class);
         startActivity(intent);
     }
-//    public void openRiskScreen(){
-//        Intent intent = new Intent(this,risk_screen.class);
-//        startActivity(intent);
-//    }
+
     public void openFAQScreen(){
         Intent intent = new Intent(this,faq_screen.class);
         startActivity(intent);

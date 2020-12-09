@@ -45,7 +45,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
     private ArrayAdapter<String> stateAdapter;
     private ArrayAdapter<String> countyAdapter;
     //arraylist for state spinner items
-    private ArrayList<String> states;
+    private ArrayList<String> statesList;
     private ArrayList<String> counties;
     //covid info list
     //ArrayList<CovidInfo> covidInfoList;
@@ -55,7 +55,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_screen);
-        getjsonState();
+        getJsonState();
         String State="AR";
         //getCounties(State);
         //textView2 = findViewById(R.id.textView2);
@@ -65,12 +65,12 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
         stateSpinner = (Spinner) findViewById(R.id.state_spinner);
         countySpinner = (Spinner) findViewById(R.id.county_spinner);
 
-        states = new ArrayList<String>();
+        Log.d("STATESLISTTTTTTTT", statesList.get(4));
         // stateSpinner.setOnItemSelectedListener(this);
 
 
         stateAdapter = new ArrayAdapter<>(location_screen.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.states));
+                android.R.layout.simple_list_item_1, statesList);
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         stateSpinner.setAdapter(stateAdapter);
 
@@ -112,7 +112,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
                 JSONObject obj2 =jsonArray.getJSONObject(i+1);
                 if(obj.getString("state").equals(State)){
                     if(!(obj.getString("county")).equals(obj2.getString("county"))){
-                        states.add(obj.getString("state"));
+                        statesList.add(obj.getString("state"));
                     }
                 }
             }
@@ -122,7 +122,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
         }
     }
 
-    private void getjsonState() {
+    private void getJsonState() {
         String json;
         try {
             InputStream inputStream= getAssets().open("covidact.json");
@@ -132,12 +132,12 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
             inputStream.close();
             json= new String(buffer,"UTF-8");
             JSONArray jsonArray = new JSONArray(json);
-            states= new ArrayList<String>();
+            statesList= new ArrayList<String>();
             for (int i =0; i< jsonArray.length()-1; i++){
                 JSONObject obj = jsonArray.getJSONObject(i);
                 JSONObject obj2 =jsonArray.getJSONObject(i+1);
                 if(!(obj.getString("state")).equals(obj2.getString("state"))){
-                    states.add(obj.getString("state"));
+                    statesList.add(obj.getString("state"));
                 }
             }
         } catch (IOException | JSONException e) {

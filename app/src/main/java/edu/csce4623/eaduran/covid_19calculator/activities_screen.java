@@ -24,6 +24,7 @@ public class activities_screen extends AppCompatActivity {
     Spinner spinnerConversation;
     Spinner spinnerTolerance;
     EditText editTextDuration;
+    boolean isBad = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +53,7 @@ public class activities_screen extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            openResultsPage();
+            selectionPage();
             }
         });
 
@@ -143,7 +144,7 @@ public class activities_screen extends AppCompatActivity {
         });
 
 
-
+//get the bad screen to display
 
         ArrayAdapter<String> conversationAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.conversation));
@@ -153,7 +154,17 @@ public class activities_screen extends AppCompatActivity {
         spinnerConversation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String text = getSpinnerConversation();
+
+                if(text=="Loud talking(shouting, talking over music, singing)[5x the risk]"){
+                    isBad=true;
+                    if(isBad==true){
+                        Log.d("TRUE!!!!!!!!!!!!", "SOOOOOOOO TRUEEE!!!!!!");
+                    }
+                }
                 getSpinnerConversation();
+
+
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -230,10 +241,27 @@ public class activities_screen extends AppCompatActivity {
         Log.d("Minutes people around  ", text);
         return text;
     }
-    
 
-    public void openResultsPage(){
-        Intent intent = new Intent(this,results_screen.class);
+    public void selectionPage(){
+        if(isBad==true){
+            openBadResultsPage();
+        }
+        else{
+            openGoodResultsPage();
+        }
+    }
+
+    public void openBadResultsPage(){
+        Intent intent = new Intent(this, results_screen_good.class);
+        startActivity(intent);
+        String temp = getDuration();
+        Log.d("DURATION", getDuration());
+        intent.putExtra("getDuration",getDuration());
+    }
+
+
+    public void openGoodResultsPage(){
+        Intent intent = new Intent(this, results_screen_good.class);
         startActivity(intent);
         String temp = getDuration();
         Log.d("DURATION", getDuration());
