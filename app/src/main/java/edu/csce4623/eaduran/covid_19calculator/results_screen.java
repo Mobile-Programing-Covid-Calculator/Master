@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,11 +12,15 @@ public class results_screen extends AppCompatActivity {
     Button newTest;
     Button faqResources;
     Button backToRisk;
+    private TextView riskNumPeople;
+    private TextView resultsRisk2;
+    private TextView resultsRiskAllocation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_results_screen);
+        setContentView(R.layout.activity_results_screen_good);
 
         newTest = findViewById(R.id.newtestButton);
         faqResources = findViewById(R.id.resultsFAQButton);

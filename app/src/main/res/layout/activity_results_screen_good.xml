@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
-
+<!--
     <TextView
         android:id="@+id/resultsRiskAllocation"
         android:layout_width="275dp"
@@ -22,6 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultsRisk2"
         app:layout_constraintVertical_bias="1.0" />
+-->
 
     <TextView
         android:id="@+id/welcome_message3"
@@ -70,7 +71,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_message3"
         app:layout_constraintVertical_bias="0.0" />
-
+<!--
     <TextView
         android:id="@+id/riskNumPeople"
         android:layout_width="275dp"
@@ -87,7 +88,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_message3"
         app:layout_constraintVertical_bias="0.0" />
-
+-->
     <TextView
         android:id="@+id/resultsRisk"
         android:layout_width="275dp"
@@ -98,6 +99,7 @@
         android:text="@string/results_risk"
         android:textAlignment="center"
         android:textColor="#978080"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/newtestButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,20 +107,38 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/resultsRisk2"
-        android:layout_width="275dp"
-        android:layout_height="22dp"
+        android:id="@+id/resultsRiskResult"
+        android:layout_width="373dp"
+        android:layout_height="152dp"
         android:layout_marginStart="65dp"
         android:layout_marginEnd="65dp"
-        android:layout_marginBottom="184dp"
-        android:text="@string/results_risk2"
+        android:layout_marginBottom="32dp"
+        android:text="SAFE"
         android:textAlignment="center"
         android:textColor="#978080"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/newtestButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultsRisk" />
-
+        app:layout_constraintTop_toBottomOf="@+id/riskNumPeople"
+        app:layout_constraintVertical_bias="1.0" />
+    <!--
+        <TextView
+            android:id="@+id/resultsRisk2"
+            android:layout_width="275dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginEnd="65dp"
+            android:layout_marginBottom="184dp"
+            android:text="@string/results_risk2"
+            android:textAlignment="center"
+            android:textColor="#978080"
+            app:layout_constraintBottom_toTopOf="@+id/newtestButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultsRisk" />
+    -->
+    <!--
     <TextView
         android:id="@+id/resultsMIcrocovids2"
         android:layout_width="284dp"
@@ -134,5 +154,5 @@
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newtestButton" />
-
+        -->
 </androidx.constraintlayout.widget.ConstraintLayout>
