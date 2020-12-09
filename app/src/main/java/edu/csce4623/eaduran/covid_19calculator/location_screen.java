@@ -21,8 +21,8 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import edu.csce4623.eaduran.covid_19calculator.API.CovidInfo;
-import edu.csce4623.eaduran.covid_19calculator.API.CovidInfoAPI;
+//import edu.csce4623.eaduran.covid_19calculator.API.CovidInfo;
+//import edu.csce4623.eaduran.covid_19calculator.API.CovidInfoAPI;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,7 +30,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class location_screen extends AppCompatActivity implements Callback<List<CovidInfo>> {
+public class location_screen extends AppCompatActivity {//implements Callback<List<CovidInfo>> {
     //private Button button;
     private Button backButton;
     private Button submit;
@@ -43,15 +43,15 @@ public class location_screen extends AppCompatActivity implements Callback<List<
     private String result = "";
 
     //covid info list
-    ArrayList<CovidInfo> covidInfoList;
-    private TextView textView2;
+    //ArrayList<CovidInfo> covidInfoList;
+    //private TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_screen);
 
-        textView2 = findViewById(R.id.textView2);
+        //textView2 = findViewById(R.id.textView2);
         //declaring buttons and spinners
         backButton = (Button) findViewById(R.id.backButton);
         submit = (Button) findViewById(R.id.location_submit);
@@ -86,7 +86,7 @@ public class location_screen extends AppCompatActivity implements Callback<List<
                 openRiskScreen();
             }
         });
-        startQuery();
+        //startQuery();
     }
 
     @Override
@@ -94,7 +94,7 @@ public class location_screen extends AppCompatActivity implements Callback<List<
         super.onDestroy();
 
     }
-
+/*
 //    void itemClicked(AdapterView<?> parent, View view, int position, long id) {
 //        Intent intent = new Intent(this, location_screen.class);
 //        intent.putExtra("state", covidInfoList.get(position).getState());
@@ -102,9 +102,7 @@ public class location_screen extends AppCompatActivity implements Callback<List<
 //        startActivity(intent);
 //    }
 
-    //static final String BASE_URL = "https://api.covidactnow.org/"; /
     static final String BASE_URL = "https://api.covidactnow.org/";
-    //static final String BASE_URL = "https://jsonplaceholder.typicode.com/";
 
     //full URL
     //https://api.covidactnow.org/v2/counties.json?apiKey=d6f5ac0f7c0143b683aa50bf7bf163dd
@@ -128,7 +126,7 @@ public class location_screen extends AppCompatActivity implements Callback<List<
 
         CovidInfoAPI covidInfoAPI = retrofit.create(CovidInfoAPI.class);
 
-        Call<List<CovidInfo>> call = covidInfoAPI.loadInfo("d6f5ac0f7c0143b683aa50bf7bf163dd");
+        Call<List<CovidInfo>> call = covidInfoAPI.loadInfo();
         call.enqueue(this);
 
     }
@@ -152,6 +150,8 @@ public class location_screen extends AppCompatActivity implements Callback<List<
     public void onFailure(Call<List<CovidInfo>> call, Throwable t) {
         t.printStackTrace();
     }
+
+ */
     public void openWelcomeScreen(){
         Intent intent = new Intent(this,welcome_screen.class);
         startActivity(intent);
