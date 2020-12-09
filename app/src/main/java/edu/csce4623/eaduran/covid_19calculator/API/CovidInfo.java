@@ -15,17 +15,6 @@ public class CovidInfo {
 	private Metrics metrics;
 	private Object lat;
 
-	//debug
-	private int userId;
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-	// end debug
 	public void setRiskLevels(RiskLevels riskLevels){
 		this.riskLevels = riskLevels;
 	}
