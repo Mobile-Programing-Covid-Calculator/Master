@@ -86,7 +86,6 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
                 openRiskScreen();
             }
         });
-        //startQuery();
     }
 
     @Override
