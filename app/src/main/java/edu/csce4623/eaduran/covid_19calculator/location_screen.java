@@ -18,7 +18,18 @@ import java.util.List;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
-public class location_screen extends AppCompatActivity {
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import edu.csce4623.eaduran.covid_19calculator.API.CovidInfo;
+import edu.csce4623.eaduran.covid_19calculator.API.CovidInfoAPI;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+public class location_screen extends AppCompatActivity implements Callback<List<CovidInfo>> {
     //private Button button;
     private Button backButton;
     private Button submit;
@@ -31,6 +42,7 @@ public class location_screen extends AppCompatActivity {
     private String result = "";
 
     //covid info list
+    ArrayList<CovidInfo> covidInfoList;
     private TextView textView2;
 
     @Override
@@ -73,6 +85,13 @@ public class location_screen extends AppCompatActivity {
                 openRiskScreen();
             }
         });
+        startQuery();
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+
     }
 
 //    void itemClicked(AdapterView<?> parent, View view, int position, long id) {
@@ -83,6 +102,51 @@ public class location_screen extends AppCompatActivity {
 //    }
 
     //static final String BASE_URL = "https://api.covidactnow.org/"; /
+    static final String BASE_URL = "https://api.covidactnow.org/v2/";
+    //static final String BASE_URL = "https://jsonplaceholder.typicode.com/";
+
+    //full URL
+    //https://api.covidactnow.org/v2/counties.json?apiKey=d6f5ac0f7c0143b683aa50bf7bf163dd
+
+    public void startQuery() {
+
+        Debug.startMethodTracing("test");
+
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+        CovidInfoAPI covidInfoAPI = retrofit.create(CovidInfoAPI.class);
+
+        Call<List<CovidInfo>> call = covidInfoAPI.loadInfo();
+        call.enqueue(this);
+
+    }
+
+    @Override
+    public void onResponse(Call<List<CovidInfo>> call, Response<List<CovidInfo>> response) {
+        //covidInfoList = new ArrayList<CovidInfo>(response.body());
+        if(!response.isSuccessful())
+        {
+            System.out.println(response.errorBody());
+            Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+            return;
+        }
+        else {
+            Log.d("SUCCESS","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+        }
+        Debug.stopMethodTracing();
+
+    }
+    @Override
+    public void onFailure(Call<List<CovidInfo>> call, Throwable t) {
+        t.printStackTrace();
+    }
     public void openWelcomeScreen(){
         Intent intent = new Intent(this,welcome_screen.class);
         startActivity(intent);
