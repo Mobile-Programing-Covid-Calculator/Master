@@ -56,21 +56,6 @@ public class activities_screen extends AppCompatActivity {
 
         //adapters and onitemclick getters for spinner
 
-        ArrayAdapter<String> interactionAdapter = new ArrayAdapter<>(activities_screen.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.interaction));
-        interactionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerInteraction.setAdapter(interactionAdapter);
-
-        spinnerInteraction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerInteraction();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
 
 
         ArrayAdapter<String> ventilationAdapter = new ArrayAdapter<>(activities_screen.this,
@@ -88,22 +73,6 @@ public class activities_screen extends AppCompatActivity {
             }
         });
 
-
-
-        ArrayAdapter<String> distanceAdapter = new ArrayAdapter<>(activities_screen.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.distance));
-        distanceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerDistance.setAdapter(distanceAdapter);
-
-        spinnerDistance.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerDistance();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
 
 
 
@@ -162,23 +131,6 @@ public class activities_screen extends AppCompatActivity {
                 getSpinnerConversation();
 
 
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-
-
-        ArrayAdapter<String> toleranceAdapter = new ArrayAdapter<>(activities_screen.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.tolerance));
-        toleranceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerTolerance.setAdapter(toleranceAdapter);
-
-        spinnerTolerance.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerTolerance();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
