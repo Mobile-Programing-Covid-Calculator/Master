@@ -36,8 +36,8 @@ public class location_screen extends AppCompatActivity {
     private String result = "";
 
     //covid info list
-    ArrayList<CovidInfo> covidInfoList;
-    private TextView textView2;
+    //ArrayList<CovidInfo> covidInfoList;
+    //private TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class location_screen extends AppCompatActivity {
         setContentView(R.layout.activity_location_screen);
         //getjson();
 
-        textView2 = findViewById(R.id.textView2);
+        //textView2 = findViewById(R.id.textView2);
         //declaring buttons and spinners
         backButton = (Button) findViewById(R.id.backButton);
         submit = (Button) findViewById(R.id.location_submit);
@@ -102,21 +102,13 @@ public class location_screen extends AppCompatActivity {
             e.printStackTrace();
         }
 
+
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
 
-    }
-
-    //static final String BASE_URL = "https://api.covidactnow.org/"; /
-    static final String BASE_URL = "https://api.covidactnow.org/v2/";
-    //static final String BASE_URL = "https://jsonplaceholder.typicode.com/";
-
-    //full URL
-    //https://api.covidactnow.org/v2/counties.json?apiKey=d6f5ac0f7c0143b683aa50bf7bf163dd
-    
     public void openWelcomeScreen(){
         Intent intent = new Intent(this,welcome_screen.class);
         startActivity(intent);
