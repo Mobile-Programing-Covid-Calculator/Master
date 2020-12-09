@@ -30,6 +30,7 @@
         <activity android:name=".results_screen_good"></activity>
         <activity android:name=".activities_screen"></activity>
         <activity android:name=".faq_screen"></activity>
+        <activity android:name=".results_screen_bad"></activity>
     </application>
 
 </manifest>
