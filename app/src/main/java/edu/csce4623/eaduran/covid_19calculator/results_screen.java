@@ -12,15 +12,18 @@ public class results_screen extends AppCompatActivity {
     Button newTest;
     Button btnFAQResults;
     Button backToRisk;
-    private TextView riskNumPeople;
-    private TextView resultsRisk2;
-    private TextView resultsRiskAllocation;
+//    private TextView riskNumPeople;
+//    private TextView resultsRisk2;
+//    private TextView resultsRiskAllocation;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_results_screen_good);
+        //if results of test are not risky then
+            setContentView(R.layout.activity_results_screen_good);
+        //if results of test are risky then
+            //setContentView(R.layout.activity_results_screen_bad);
 
         newTest = findViewById(R.id.newtestButton);
         btnFAQResults = findViewById(R.id.btnFAQResults);
@@ -30,11 +33,11 @@ public class results_screen extends AppCompatActivity {
         btnFAQResults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFaqScreen();
+                openFAQScreen();
             }
         });
 
-//Start new test
+        //Start new test
         newTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,15 +50,11 @@ public class results_screen extends AppCompatActivity {
         Intent intent = new Intent(this,location_screen.class);
         startActivity(intent);
     }
-
-    public void openRiskScreen(){
-        Intent intent = new Intent(this,risk_screen.class);
-        startActivity(intent);
-    }
-
-
-
-    public void openFaqScreen(){
+//    public void openRiskScreen(){
+//        Intent intent = new Intent(this,risk_screen.class);
+//        startActivity(intent);
+//    }
+    public void openFAQScreen(){
         Intent intent = new Intent(this,faq_screen.class);
         startActivity(intent);
     }
