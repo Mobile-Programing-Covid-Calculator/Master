@@ -230,8 +230,7 @@ public class activities_screen extends AppCompatActivity {
         Log.d("Minutes people around  ", text);
         return text;
     }
-
-
+    
 
     public void openResultsPage(){
         Intent intent = new Intent(this,results_screen.class);
