@@ -38,10 +38,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -97,7 +94,6 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
             }
         });
         //getData();
-        startQuery();
     }
 
     @Override
@@ -120,29 +116,10 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-        CovidInfoAPI covidInfoAPI = retrofit.create(CovidInfoAPI.class);
-
-        Call<List<CovidInfo>> call = covidInfoAPI.loadInfo();
-        call.enqueue(this);
+        CovidInfoAPI covidInfoAPI
 
     }
 
-    @Override
-    public void onResponse(Call<List<CovidInfo>> call, Response<List<CovidInfo>> response) {
-        if(response.isSuccessful())
-        {
-            for (CovidInfo )
-        }
-        else {
-            System.out.println(response.errorBody());
-        }
-        Debug.stopMethodTracing();
-
-    }
-    @Override
-    public void onFailure(<Call<List<CovidInfo>> call, Throwable t) {
-        t.printStackTrace();
-    }
     private void getCountyData() {
 
     }
