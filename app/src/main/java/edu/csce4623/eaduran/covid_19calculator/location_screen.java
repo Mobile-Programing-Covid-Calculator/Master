@@ -23,11 +23,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+//import com.android.volley.RequestQueue;
+//import com.android.volley.Response;
+//import com.android.volley.VolleyError;
+//import com.android.volley.toolbox.StringRequest;
+//import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -86,9 +86,22 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
                 openRiskScreen();
             }
         });
-        getData();
+        //getData();
     }
 
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+
+    }
+    static final String BASE_URL = "https://api.covidactnow.org/";
+
+    public void startQuery
+
+    private void getCountyData() {
+
+    }
+/*
     private void getData(){
         //Creating a string request
         final String result = "";
@@ -126,7 +139,6 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
     }
 
 
-
     private void getStates(JSONArray j){
         //Traversing through all the items in the json array
         for(int i=0;i<j.length();i++){
@@ -145,7 +157,7 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
         stateSpinner.setAdapter(new ArrayAdapter<String>(location_screen.this, android.R.layout.simple_spinner_dropdown_item, states));
     }
 
-
+*/
     public void openWelcomeScreen(){
         Intent intent = new Intent(this,welcome_screen.class);
         startActivity(intent);
