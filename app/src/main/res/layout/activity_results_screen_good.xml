@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
-<!--
+    <!--
     <TextView
         android:id="@+id/resultsRiskAllocation"
         android:layout_width="275dp"
@@ -39,6 +39,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,7 +72,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_message3"
         app:layout_constraintVertical_bias="0.0" />
-<!--
+    <!--
     <TextView
         android:id="@+id/riskNumPeople"
         android:layout_width="275dp"
@@ -89,39 +90,53 @@
         app:layout_constraintTop_toBottomOf="@+id/welcome_message3"
         app:layout_constraintVertical_bias="0.0" />
 -->
+
     <TextView
         android:id="@+id/resultsRisk"
         android:layout_width="275dp"
         android:layout_height="22dp"
         android:layout_marginStart="65dp"
         android:layout_marginEnd="65dp"
-        android:layout_marginBottom="248dp"
+        android:layout_marginBottom="160dp"
         android:text="@string/results_risk"
         android:textAlignment="center"
         android:textColor="#978080"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/newtestButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/riskNumPeople"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/resultsRiskResult"
-        android:layout_width="373dp"
-        android:layout_height="152dp"
+        android:layout_width="366dp"
+        android:layout_height="95dp"
         android:layout_marginStart="65dp"
         android:layout_marginEnd="65dp"
-        android:layout_marginBottom="32dp"
-        android:text="YOU ARE SAFE"
+        android:layout_marginBottom="20dp"
+        android:text="LOW RISK"
         android:textAlignment="center"
         android:textColor="#978080"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/newtestButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/riskNumPeople"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="192dp"
+        android:layout_height="152dp"
+        app:layout_constraintBottom_toTopOf="@+id/resultsRisk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_message3"
+        app:srcCompat="@mipmap/checkmark" />
     <!--
         <TextView
             android:id="@+id/resultsRisk2"

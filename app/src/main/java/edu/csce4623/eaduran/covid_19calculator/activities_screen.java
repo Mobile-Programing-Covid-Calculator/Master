@@ -41,6 +41,7 @@ public class activities_screen extends AppCompatActivity {
         spinnerConversation = (Spinner) findViewById(R.id.spinnerConversation);
         spinnerTolerance = (Spinner) findViewById(R.id.spinnerTolerance);
 
+
         //Set buttons
         back.setOnClickListener(new View.OnClickListener() {
             @Override
