@@ -25,7 +25,10 @@ public class risk_screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_risk_screen);
         //Globals
-
+        Button back = findViewById(R.id.backButton3);
+        Button submit = findViewById(R.id.riskSubmit);
+        Spinner spinnerRisk = (Spinner) findViewById(R.id.spinnerRiskProfile);
+        Spinner spinnerDistance = (Spinner) findViewById(R.id.spinnerAvgDistance);
 
         //Set risk spinner
 
