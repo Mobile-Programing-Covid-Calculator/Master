@@ -90,17 +90,9 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
-
     }
-
-
-    
-
-
-
-
     public void openWelcomeScreen(){
         Intent intent = new Intent(this,welcome_screen.class);
         startActivity(intent);
