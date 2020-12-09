@@ -28,11 +28,11 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter></activity>
-        <activity android:name=".welcome_screen"></activity>
-        <activity android:name=".location_screen"></activity>
-        <activity android:name=".risk_screen"></activity>
-        <activity android:name=".results_screen"></activity>
-        <activity android:name=".activities_screen"></activity>
+        <activity android:name=".welcome_screen"/>
+        <activity android:name=".location_screen"/>
+        <activity android:name=".risk_screen" />
+        <activity android:name=".results_screen"/>
+        <activity android:name=".activities_screen"/>
     </application>
 
 </manifest>
