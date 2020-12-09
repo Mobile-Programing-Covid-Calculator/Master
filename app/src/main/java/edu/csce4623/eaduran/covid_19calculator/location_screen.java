@@ -57,7 +57,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
         setContentView(R.layout.activity_location_screen);
         getJsonState();
         String State="AR";
-        //getCounties(State);
+        getCounties(State);
         //textView2 = findViewById(R.id.textView2);
         //declaring buttons and spinners
         backButton = (Button) findViewById(R.id.backButton);
@@ -109,11 +109,9 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
             counties= new ArrayList<String>();
             for (int i =0; i< jsonArray.length()-1; i++){
                 JSONObject obj = jsonArray.getJSONObject(i);
-                JSONObject obj2 =jsonArray.getJSONObject(i+1);
+                int j=0;
                 if(obj.getString("state").equals(State)){
-                    if(!(obj.getString("county")).equals(obj2.getString("county"))){
-                        statesList.add(obj.getString("state"));
-                    }
+                        counties.add(obj.getString("county"));
                 }
             }
         } catch (IOException | JSONException e) {
