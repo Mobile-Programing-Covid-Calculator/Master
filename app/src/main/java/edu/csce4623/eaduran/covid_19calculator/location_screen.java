@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Debug;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.widget.AdapterView;
+import android.widget.TextView;
 
 //import com.android.volley.RequestQueue;
 //import com.android.volley.Response;
@@ -45,10 +47,15 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
     private ArrayList<String> states;
     private String result = "";
 
+    //covid info list
+    ArrayList<CovidInfo> covidInfoList;
+    TextView textView2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_screen);
+        //Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
 
         //declaring buttons and spinners
         backButton = (Button) findViewById(R.id.backButton);
@@ -85,6 +92,7 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
             }
         });
         //getData();
+        startQuery();
     }
 
     @Override
@@ -92,7 +100,18 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
         super.onDestroy();
 
     }
-    static final String BASE_URL = "https://api.covidactnow.org";
+
+//    void itemClicked(AdapterView<?> parent, View view, int position, long id) {
+//        Intent intent = new Intent(this, location_screen.class);
+//        intent.putExtra("state", covidInfoList.get(position).getState());
+//
+//        startActivity(intent);
+//    }
+
+    static final String BASE_URL = "https://api.covidactnow.org/";
+
+    //full URL
+    //https://api.covidactnow.org/v2/counties.json?apiKey=d6f5ac0f7c0143b683aa50bf7bf163dd
 
     public void startQuery() {
 
@@ -107,20 +126,36 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
+        CovidInfoAPI covidInfoAPI = retrofit.create(CovidInfoAPI.class);
+
+        Call<List<CovidInfo>> call = covidInfoAPI.loadInfo();
+        call.enqueue(this);
+
     }
 
     @Override
     public void onResponse(Call<List<CovidInfo>> call, Response<List<CovidInfo>> response) {
-        if(response.isSuccessful())
+        //covidInfoList = new ArrayList<CovidInfo>(response.body());
+        if(!response.isSuccessful())
         {
-            //CovidInfo covidInfo;
-            Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
-            //Log.d("location_screen", covidInfo.getCounty());
-
-        }
-        else {
             System.out.println(response.errorBody());
+            Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+            //Log.d("location_screen", covidInfo.getState());
+            return;
         }
+        List<CovidInfo> covidInfos = response.body();
+
+        for (CovidInfo covidInfo : covidInfos) {
+            String content = "";
+            content += covidInfo.getState();
+            //Log.d("location_screen_success", )
+            Log.d("SUCCESS","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+            textView2.append(content);
+        }
+//        else {
+//
+//            Log.d("location_screen_success","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+//        }
         Debug.stopMethodTracing();
 
     }
@@ -129,9 +164,9 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
         t.printStackTrace();
     }
 
-    private void getCountyData() {
-
-    }
+//    private void getCountyData() {
+//
+//    }
 /*
     private void getData(){
         //Creating a string request
