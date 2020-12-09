@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +23,7 @@ public class activities_screen extends AppCompatActivity {
     Spinner spinnerTheirMask;
     Spinner spinnerConversation;
     Spinner spinnerTolerance;
-
+    EditText editTextDuration;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +39,7 @@ public class activities_screen extends AppCompatActivity {
         spinnerTheirMask = (Spinner) findViewById(R.id.spinnerTheirMask);
         spinnerConversation = (Spinner) findViewById(R.id.spinnerConversation);
         spinnerTolerance = (Spinner) findViewById(R.id.spinnerTolerance);
-
+        editTextDuration = (EditText) findViewById(R.id.editTextDuration);
 
         //Set buttons
         back.setOnClickListener(new View.OnClickListener() {
@@ -54,48 +56,130 @@ public class activities_screen extends AppCompatActivity {
             }
         });
 
-        //Set risk spinner
+        //adapters and onitemclick getters for spinner
 
         ArrayAdapter<String> interactionAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.interaction));
         interactionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerInteraction.setAdapter(interactionAdapter);
 
+        spinnerInteraction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getSpinnerInteraction();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
+
         ArrayAdapter<String> ventilationAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.ventilation));
         ventilationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerVentilation.setAdapter(ventilationAdapter);
+
+        spinnerVentilation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getSpinnerVentilation();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
 
         ArrayAdapter<String> distanceAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.distance));
         distanceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDistance.setAdapter(distanceAdapter);
 
+        spinnerDistance.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getSpinnerDistance();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
+
         ArrayAdapter<String> yourMaskAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.yourMask));
         yourMaskAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerYourMask.setAdapter(yourMaskAdapter);
+
+        spinnerYourMask.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getSpinnerYourMask();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
+
 
         ArrayAdapter<String> theirMaskAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.theirMask));
         theirMaskAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTheirMask.setAdapter(theirMaskAdapter);
 
+        spinnerTheirMask.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getSpinnerTheirMask();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
+
+
         ArrayAdapter<String> conversationAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.conversation));
         conversationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerConversation.setAdapter(conversationAdapter);
+
+        spinnerConversation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getSpinnerConversation();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
 
         ArrayAdapter<String> toleranceAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.tolerance));
         toleranceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTolerance.setAdapter(toleranceAdapter);
 
-if(toleranceAdapter!=null){
+        spinnerTolerance.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getSpinnerTolerance();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
 }
 
-    }
+
     //Getters for spinners
     public String getSpinnerInteraction() {
         String text = spinnerInteraction.getSelectedItem().toString();
@@ -139,15 +223,28 @@ if(toleranceAdapter!=null){
         return text;
     }
 
+    //get editText for Duration
+
+    public String getDuration(){
+        String text = editTextDuration.getText().toString();
+        Log.d("Minutes people around  ", text);
+        return text;
+    }
 
 
 
     public void openResultsPage(){
         Intent intent = new Intent(this,results_screen.class);
         startActivity(intent);
+        String temp = getDuration();
+        Log.d("DURATION", getDuration());
+        intent.putExtra("getDuration",getDuration());
     }
+
     public void openRiskPage(){
         Intent intent = new Intent(this,risk_screen.class);
         startActivity(intent);
     }
+
+
 }
