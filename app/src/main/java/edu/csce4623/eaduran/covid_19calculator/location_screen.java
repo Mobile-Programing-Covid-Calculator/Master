@@ -136,24 +136,18 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
         //covidInfoList = new ArrayList<CovidInfo>(response.body());
         if(!response.isSuccessful())
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             System.out.println(response.errorBody());
             Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
             return;
         }
         else {
             Log.d("SUCCESS","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
-=======
-=======
->>>>>>> parent of be32c5b... Update location_screen.java
-=======
->>>>>>> parent of be32c5b... Update location_screen.java
             CovidInfo covidInfo = null;
             Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
            // Log.d("location_screen", covidInfo.getCounty());
             
+            Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+
 
         }
         else {
@@ -161,12 +155,6 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
             Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
             //Log.d("location_screen", covidInfo.getState());
             return;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of be32c5b... Update location_screen.java
-=======
-=======
->>>>>>> parent of be32c5b... Update location_screen.java
         }
         List<CovidInfo> covidInfos = response.body();
 
@@ -176,7 +164,6 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
             //Log.d("location_screen_success", )
             Log.d("SUCCESS","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
             textView2.append(content);
->>>>>>> parent of be32c5b... Update location_screen.java
         }
         Debug.stopMethodTracing();
 
