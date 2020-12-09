@@ -139,17 +139,19 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
         //covidInfoList = new ArrayList<CovidInfo>(response.body());
         if(!response.isSuccessful())
         {
-            CovidInfo covidInfo = null;
-            Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+            System.out.println(response.errorBody());
+            Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+            return;
+            //CovidInfo covidInfo = null;
+            //Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
            // Log.d("location_screen", covidInfo.getCounty());
             
 
         }
         else {
-            System.out.println(response.errorBody());
-            Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+            //System.out.println(response.errorBody());
             //Log.d("location_screen", covidInfo.getState());
-            return;
+            Log.d("SUCCESS","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
         }
         List<CovidInfo> covidInfos = response.body();
 
