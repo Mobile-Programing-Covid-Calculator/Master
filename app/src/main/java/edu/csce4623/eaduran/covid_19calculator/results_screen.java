@@ -47,6 +47,7 @@ public class results_screen extends AppCompatActivity {
         Intent intent = new Intent(this,risk_screen.class);
         startActivity(intent);
     }
+    
 
 
 //    public void openFaqScreen(){
