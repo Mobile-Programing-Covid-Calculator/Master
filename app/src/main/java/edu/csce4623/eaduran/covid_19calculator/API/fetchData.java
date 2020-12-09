@@ -1,4 +1,4 @@
-package edu.csce4623.eaduran.covid_19calculator;
+package edu.csce4623.eaduran.covid_19calculator.API;
 
 import android.os.AsyncTask;
 
@@ -13,6 +13,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import edu.csce4623.eaduran.covid_19calculator.MainActivity;
 
 
 public class fetchData extends AsyncTask {

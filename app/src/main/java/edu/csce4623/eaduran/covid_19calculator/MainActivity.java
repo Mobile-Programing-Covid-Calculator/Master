@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import edu.csce4623.eaduran.covid_19calculator.API.fetchData;
+
 public class MainActivity extends AppCompatActivity {
     Button click;
     public  static TextView data;
