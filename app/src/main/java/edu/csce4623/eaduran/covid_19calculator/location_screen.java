@@ -23,6 +23,7 @@ import com.google.gson.GsonBuilder;
 
 import edu.csce4623.eaduran.covid_19calculator.API.CovidInfo;
 import edu.csce4623.eaduran.covid_19calculator.API.CovidInfoAPI;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -102,7 +103,7 @@ public class location_screen extends AppCompatActivity implements Callback<List<
 //    }
 
     //static final String BASE_URL = "https://api.covidactnow.org/"; /
-    static final String BASE_URL = "https://api.covidactnow.org/v2/";
+    static final String BASE_URL = "https://api.covidactnow.org/";
     //static final String BASE_URL = "https://jsonplaceholder.typicode.com/";
 
     //full URL
@@ -116,14 +117,18 @@ public class location_screen extends AppCompatActivity implements Callback<List<
                 .setLenient()
                 .create();
 
+        final OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        OkHttpClient client = httpClient.build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(client)
                 .build();
 
         CovidInfoAPI covidInfoAPI = retrofit.create(CovidInfoAPI.class);
 
-        Call<List<CovidInfo>> call = covidInfoAPI.loadInfo();
+        Call<List<CovidInfo>> call = covidInfoAPI.loadInfo("d6f5ac0f7c0143b683aa50bf7bf163dd");
         call.enqueue(this);
 
     }
