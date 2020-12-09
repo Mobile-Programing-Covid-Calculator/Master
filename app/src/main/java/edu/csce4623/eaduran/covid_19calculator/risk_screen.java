@@ -2,17 +2,25 @@ package edu.csce4623.eaduran.covid_19calculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 //import android.widget.EditText;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class risk_screen extends AppCompatActivity {
 
-
+    //Globals
+    Button back;
+    Button submit;
+    Spinner spinnerRisk;
+    Spinner spinnerDistance;
+    EditText peopleNearby;
+    EditText minAroundPeople;
 
 
     @Override
@@ -20,13 +28,13 @@ public class risk_screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_risk_screen);
         //Globals
-        Button back = findViewById(R.id.backButton3);
-        Button submit = findViewById(R.id.riskSubmit);
-        Spinner spinnerRisk = (Spinner) findViewById(R.id.spinnerRiskProfile);
-        Spinner spinnerDistance = (Spinner) findViewById(R.id.spinnerAvgDistance);
+        back = findViewById(R.id.backButton3);
+        submit = findViewById(R.id.riskSubmit);
+        spinnerRisk = (Spinner) findViewById(R.id.spinnerRiskProfile);
+        spinnerDistance = (Spinner) findViewById(R.id.spinnerAvgDistance);
 
-        EditText peopleNearby = (EditText) findViewById(R.id.riskNumPeopleInput);
-        EditText minAroundPeople = (EditText) findViewById(R.id.riskNumPeopleInput2);
+        peopleNearby = (EditText) findViewById(R.id.riskNumPeopleInput);
+        minAroundPeople = (EditText) findViewById(R.id.riskNumPeopleInput2);
 
 
 
@@ -57,7 +65,8 @@ public class risk_screen extends AppCompatActivity {
             }
         });
 
-
+//        getNumPeopleAround();
+//        getMinAroundPeople();
 
     }
     public void openLocationScreen(){
@@ -65,22 +74,26 @@ public class risk_screen extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    public int getNumPeopleAround(){
-//        int numPeople = Integer.parseInt(peopleNearby.getText().toString());
-//
-//        return numPeople;
-//    }
+    public String getNumPeopleAround(){
+        String peopleNear = peopleNearby.getText().toString();
+        Log.d("Number of people:  ", peopleNear);
+        return peopleNear;
+    }
 
-//    public int getMinAroundPeople(){
-//        int minAround = Integer.parseInt(minAroundPeople.getText().toString());
-//        return minAround;
-//    }
+    public String getMinAroundPeople(){
+        String minAround = minAroundPeople.getText().toString();
+        Log.d("Minutes people around  ", minAround);
+        return minAround;
+    }
 
     public void openActivitiesPage(){
         Intent intent = new Intent(this,activities_screen.class);
-
-//        intent.putExtra("numPeopleAround",getNumPeopleAround());
-//        intent.putExtra("getMinuteAroundPeople",getMinAroundPeople());
+        String temp = getNumPeopleAround();
+        String temp2 = getMinAroundPeople();
+        Log.d("numPeopleAround", temp);
+        Log.d("minAroundPeople", temp2);
+        intent.putExtra("numPeopleAround",getNumPeopleAround());
+        intent.putExtra("getMinuteAroundPeople",getMinAroundPeople());
 
         startActivity(intent);
     }

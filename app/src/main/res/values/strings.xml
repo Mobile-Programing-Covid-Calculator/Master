@@ -159,6 +159,7 @@
     </string-array>
 
     <string-array name="conversation">
+        <item>Conversation...</item>
         <item>Not talking(such as quietly riding the train)[1/5 the risk]</item>
         <item>Normal conversation[baseline risk]</item>
         <item>Loud talking(shouting, talking over music, singing)[5x the risk]</item>
