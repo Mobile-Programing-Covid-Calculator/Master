@@ -138,6 +138,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
         {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             System.out.println(response.errorBody());
             Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
             return;
@@ -145,6 +146,8 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
         else {
             Log.d("SUCCESS","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
 =======
+=======
+>>>>>>> parent of be32c5b... Update location_screen.java
 =======
 >>>>>>> parent of be32c5b... Update location_screen.java
             CovidInfo covidInfo = null;
@@ -159,8 +162,11 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
             //Log.d("location_screen", covidInfo.getState());
             return;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of be32c5b... Update location_screen.java
 =======
+=======
+>>>>>>> parent of be32c5b... Update location_screen.java
         }
         List<CovidInfo> covidInfos = response.body();
 
