@@ -2,6 +2,7 @@ package edu.csce4623.eaduran.covid_19calculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -29,11 +30,17 @@ import android.widget.TextView;
 //import com.android.volley.toolbox.StringRequest;
 //import com.android.volley.toolbox.Volley;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class location_screen extends AppCompatActivity implements Spinner.OnItemSelectedListener {
     //private Button button;
@@ -96,7 +103,22 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
     }
     static final String BASE_URL = "https://api.covidactnow.org/";
 
-    public void startQuery
+    public void startQuery() {
+
+        Debug.startMethodTracing("test");
+
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+        CovidInfoAPI covidInfoAPI
+
+    }
 
     private void getCountyData() {
 
