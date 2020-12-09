@@ -3,6 +3,7 @@ package edu.csce4623.eaduran.covid_19calculator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Debug;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -10,19 +11,9 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import android.os.Bundle;
-import android.view.View;
+
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
 
 //import com.android.volley.RequestQueue;
 //import com.android.volley.Response;
@@ -33,19 +24,11 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import edu.csce4623.eaduran.covid_19calculator.API.CovidInfoAPI;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class location_screen extends AppCompatActivity implements Spinner.OnItemSelectedListener {
+public class location_screen extends AppCompatActivity implements Spinner.OnItemSelectedListener, Callback<List<CovidInfo>> {
     //private Button button;
     private Button backButton;
     private Button submit;
@@ -97,7 +80,6 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
             }
         });
         //getData();
-        startQuery();
     }
 
     @Override
@@ -105,7 +87,7 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
         super.onDestroy();
 
     }
-    static final String BASE_URL = "https://api.covidactnow.org/";
+    static final String BASE_URL = "https://api.covidactnow.org";
 
     public void startQuery() {
 
@@ -120,18 +102,16 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-        CovidInfoAPI covidInfoAPI = retrofit.create(CovidInfoAPI.class);
-
-        Call<List<CovidInfo>> call = covidInfoAPI.loadInfo();
-        call.enqueue(this);
-
     }
 
+<<<<<<< HEAD
     @Override
     public void onResponse(Call<List<CovidInfo>> call, Response<List<CovidInfo>> response) {
         if(response.isSuccessful())
         {
-            for (CovidInfo )
+            Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+
+
         }
         else {
             System.out.println(response.errorBody());
@@ -140,9 +120,11 @@ public class location_screen extends AppCompatActivity implements Spinner.OnItem
 
     }
     @Override
-    public void onFailure(<Call<List<CovidInfo>> call, Throwable t) {
+    public void onFailure(Call<List<CovidInfo>> call, Throwable t) {
         t.printStackTrace();
     }
+=======
+>>>>>>> 75b6ec31ae379e3aa6794ec6d7be13326bdb278c
     private void getCountyData() {
 
     }

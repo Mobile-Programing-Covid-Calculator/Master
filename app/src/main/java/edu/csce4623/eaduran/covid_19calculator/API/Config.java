@@ -1,4 +1,4 @@
-package edu.csce4623.eaduran.covid_19calculator;
+package edu.csce4623.eaduran.covid_19calculator.API;
 
 public class Config {
     public static final String DATA_URL = "http://simplifiedcoding.16mb.com/Spinner/json.php";
