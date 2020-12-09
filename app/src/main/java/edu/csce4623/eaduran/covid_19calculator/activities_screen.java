@@ -40,7 +40,7 @@ public class activities_screen extends AppCompatActivity {
         spinnerTheirMask = (Spinner) findViewById(R.id.spinnerTheirMask);
         spinnerConversation = (Spinner) findViewById(R.id.spinnerConversation);
         spinnerTolerance = (Spinner) findViewById(R.id.spinnerTolerance);
-        //editTextDuration = (EditText) findViewById(R.id.editTextDuration);
+
 
         //Set buttons
         back.setOnClickListener(new View.OnClickListener() {
