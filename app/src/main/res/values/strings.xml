@@ -17,6 +17,9 @@
     <string name="back">BACK</string>
     <string name="calculate_risk">Calculating your risk:</string>
     <string name="num_people">How many people will be near you (within 15 feet)?</string>
+    /*
+
+    */
     <string name="results">Results</string>
     <string name="results_microcovids">~#### microCOVIDs*</string>
     <string name="results_risk">How risky is this?</string>
