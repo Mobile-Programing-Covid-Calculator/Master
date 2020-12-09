@@ -2,10 +2,9 @@ package edu.csce4623.eaduran.covid_19calculator;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Debug;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -15,13 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
-import android.widget.AdapterView;
-import android.widget.TextView;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import android.widget.Toast;
 
 //import edu.csce4623.eaduran.covid_19calculator.API.CovidInfo;
 //import edu.csce4623.eaduran.covid_19calculator.API.CovidInfoAPI;
@@ -29,15 +23,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import okhttp3.OkHttpClient;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class location_screen extends AppCompatActivity {//implements Callback<List<CovidInfo>> {
-    //private Button button;
+
     private Button backButton;
     private Button submit;
     public static Spinner stateSpinner;
@@ -46,39 +33,47 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
     private ArrayAdapter<String> countyAdapter;
     //arraylist for state spinner items
     private ArrayList<String> statesList;
-    private ArrayList<String> counties;
-    //covid info list
-    //ArrayList<CovidInfo> covidInfoList;
-    //private TextView textView2;
+    private ArrayList<String> countiesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_screen);
         getJsonState();
-        String State="AR";
-        getCounties(State);
-        //textView2 = findViewById(R.id.textView2);
-        //declaring buttons and spinners
+        countiesList= new ArrayList<String>();
+        countiesList.add("Counties");
+
         backButton = (Button) findViewById(R.id.backButton);
         submit = (Button) findViewById(R.id.location_submit);
         stateSpinner = (Spinner) findViewById(R.id.state_spinner);
         countySpinner = (Spinner) findViewById(R.id.county_spinner);
 
-        Log.d("STATESLISTTTTTTTT", statesList.get(4));
-        // stateSpinner.setOnItemSelectedListener(this);
 
+        countyAdapter = new ArrayAdapter<>(location_screen.this,
+                android.R.layout.simple_list_item_1, countiesList);
+        countyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        countySpinner.setAdapter(countyAdapter);
 
         stateAdapter = new ArrayAdapter<>(location_screen.this,
                 android.R.layout.simple_list_item_1, statesList);
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         stateSpinner.setAdapter(stateAdapter);
+        stateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(stateSpinner.getSelectedItemPosition()!=0){
+                    countiesList.removeAll(countiesList);
+                    getCounties(getState());
+                    countyAdapter.notifyDataSetChanged();
+                }
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Log.d("Failed", "Failed");
+            }
+        });
 
-        countyAdapter = new ArrayAdapter<>(location_screen.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.counties));
-        countyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        countySpinner.setAdapter(countyAdapter);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,12 +101,11 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
             inputStream.close();
             json= new String(buffer,"UTF-8");
             JSONArray jsonArray = new JSONArray(json);
-            counties= new ArrayList<String>();
+            countiesList.add("Counties");
             for (int i =0; i< jsonArray.length()-1; i++){
                 JSONObject obj = jsonArray.getJSONObject(i);
-                int j=0;
                 if(obj.getString("state").equals(State)){
-                        counties.add(obj.getString("county"));
+                        countiesList.add(obj.getString("county"));
                 }
             }
         } catch (IOException | JSONException e) {
@@ -131,6 +125,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
             json= new String(buffer,"UTF-8");
             JSONArray jsonArray = new JSONArray(json);
             statesList= new ArrayList<String>();
+            statesList.add("States");
             for (int i =0; i< jsonArray.length()-1; i++){
                 JSONObject obj = jsonArray.getJSONObject(i);
                 JSONObject obj2 =jsonArray.getJSONObject(i+1);
@@ -142,16 +137,31 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
             Log.d("Failed","Error");
             e.printStackTrace();
         }
-
-
     }
-
+    public String getState() {
+        String text = stateSpinner.getSelectedItem().toString();
+        Log.d("Selected State", text);
+        return text;
+    }
+    public String getCounty() {
+        String text = countySpinner.getSelectedItem().toString();
+        Log.d("Selected State", text);
+        return text;
+    }
     public void openWelcomeScreen() {
         Intent intent = new Intent(this,welcome_screen.class);
         startActivity(intent);
     }
     public void openRiskScreen() {
-        Intent intent = new Intent(this,risk_screen.class);
-        startActivity(intent);
+        String state= getState();
+        String county= getCounty();
+        if (state.equals("States") || county.equals("Counties")){
+            Toast.makeText(getApplicationContext(),"Please select a State and a County",Toast.LENGTH_LONG).show();
+        }else {
+            Intent intent = new Intent(this, risk_screen.class);
+            intent.putExtra("State",state);
+            intent.putExtra("County", county);
+            startActivity(intent);
+        }
     }
 }
