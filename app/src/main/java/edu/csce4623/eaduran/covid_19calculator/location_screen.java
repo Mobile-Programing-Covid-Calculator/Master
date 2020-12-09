@@ -137,6 +137,7 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
         if(!response.isSuccessful())
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             System.out.println(response.errorBody());
             Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
             return;
@@ -144,6 +145,8 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
         else {
             Log.d("SUCCESS","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
 =======
+=======
+>>>>>>> parent of be32c5b... Update location_screen.java
             CovidInfo covidInfo = null;
             Log.d("location_screen","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
            // Log.d("location_screen", covidInfo.getCounty());
@@ -155,6 +158,18 @@ public class location_screen extends AppCompatActivity {//implements Callback<Li
             Log.d("FAILURE","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
             //Log.d("location_screen", covidInfo.getState());
             return;
+<<<<<<< HEAD
+>>>>>>> parent of be32c5b... Update location_screen.java
+=======
+        }
+        List<CovidInfo> covidInfos = response.body();
+
+        for (CovidInfo covidInfo : covidInfos) {
+            String content = "";
+            content += covidInfo.getState();
+            //Log.d("location_screen_success", )
+            Log.d("SUCCESS","testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n" + "testing" + "\n");
+            textView2.append(content);
 >>>>>>> parent of be32c5b... Update location_screen.java
         }
         Debug.stopMethodTracing();
