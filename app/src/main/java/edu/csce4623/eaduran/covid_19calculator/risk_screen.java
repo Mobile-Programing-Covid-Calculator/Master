@@ -104,11 +104,11 @@ public class risk_screen extends AppCompatActivity {
             for (int i =0; i< jsonArray.length()-1; i++){
                 JSONObject obj = jsonArray.getJSONObject(i);
                 if((obj.getString("state")).equals(state)&&(obj.getString("county").equals(county))){
-                    population="County Population : "+obj.getString("population");
+                    population="State : "+ state +"\n"+ " County : "+county;
                     String temp=obj.getString("actuals");
                     JSONArray obj2 = new JSONArray("["+temp+"]");
                     JSONObject param1 = obj2.getJSONObject(0);
-                    cases= "Active Cases : " + param1.getString("cases");
+                    cases= "County Population: "+obj.getString("population")+"\n"+" Active Cases: " + param1.getString("cases");
                 }
             }
         } catch (IOException | JSONException e) {
