@@ -94,27 +94,7 @@
         <item>Wyoming</item>
     </string-array>
 
-    <string-array name="riskProfiles">
-        <item>Please select one...</item>
-        <item>An average person in your area</item>
-        <item>An essential or front-line worker in your area</item>
-        <item>Someone in your area that is not an essential or front-line worker</item>
-        <item>Lives alone and only grocery shops</item>
-        <item>Lives with partner, both of whom only grocery shop</item>
-        <item>In a closed pod of 4 people(who do not go to work or socialize)</item>
-        <item>In a closed pod of 10 people(who do not go to work or socialize)</item>
-        <item>In a closed pod of 20 people(who do not go to work or socialize)</item>
-        <item>Has 1 close contact(Incl. roommates) who socializes but does not work</item>
-        <item>Has 4 close contacts(Incl. roommates) who socialize but do not work</item>
-        <item>Has 10 close contacts(Incl. roommates) who socialize but do not work</item>
-        <item>Has 1 close contact(Incl. roommates) who is an essential worker</item>
-        <item>Goes to bars regularly</item>
-        <item>Currently infected with COVID-19</item>
-    </string-array>
-
-    <string-array name="interaction">
-        <item>ONE TIME INTERACTION!!</item>
-    </string-array>
+    
 
     <string-array name="ventilation">
         <item>Environment....</item>
@@ -127,11 +107,6 @@
         <item></item>
     </string-array>
 
-    <string-array name="distance">
-        <item>SHOW ME (distance)</item>
-        <item>Kissing [2x the risk]</item>
-        <item></item>
-    </string-array>
 
     <string-array name="averageDistance">
         <item>Avg Distance apart...</item>
@@ -165,9 +140,7 @@
         <item>Loud talking(shouting, talking over music, singing)[5x the risk]</item>
     </string-array>
 
-    <string-array name="tolerance">
-        <item>RISK TOLERANCE???</item>
-    </string-array>
+
 
 
 </resources>
