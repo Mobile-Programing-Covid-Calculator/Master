@@ -24,13 +24,20 @@ public class activities_screen extends AppCompatActivity {
     Spinner spinnerConversation;
     Spinner spinnerTolerance;
     EditText editTextDuration;
-    boolean isBad = false;
+    String getNumPeopleAround;
+    String getMinuteAroundPeople;
+    String getDistance;
+    String getRiskProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activities_screen);
 
         //Globals
+        getNumPeopleAround=this.getIntent().getStringExtra("numPeopleAround");;
+        getMinuteAroundPeople=this.getIntent().getStringExtra("getMinuteAroundPeople");;
+        getDistance=this.getIntent().getStringExtra("getDistance");;
+        getRiskProfile=this.getIntent().getStringExtra("getRiskProfile");;
         back = findViewById(R.id.backButtonActivites);
         submit = findViewById(R.id.activitiesSubmit);
         spinnerVentilation = (Spinner) findViewById(R.id.spinnerVentilation);

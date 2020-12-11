@@ -144,26 +144,20 @@ public class risk_screen extends AppCompatActivity {
     }
 
     public void openActivitiesPage(){
-        String distance = getDistance();
-        String risk = getRisk();
-        String numPeople= getNumPeopleAround();
-        String minAroundPeople= getMinAroundPeople();
-        if (numPeople.equals("") || minAroundPeople.equals("")||
-                distance.equals("Avg Distance apart...")|| risk.equals("Please select one...")){
+        if((getNumPeopleAround().equals(""))|| getNumPeopleAround().equals("Avg Distance apart...") || getNumPeopleAround().equals("") || getRisk().equals("Please select one...")){
             Toast.makeText(getApplicationContext(),"Please put inputs in all fields",Toast.LENGTH_LONG).show();
-        }else {
+        }
+        else{
             Intent intent = new Intent(this,activities_screen.class);
             String temp = getNumPeopleAround();
             String temp2 = getMinAroundPeople();
             Log.d("numPeopleAround", temp);
             Log.d("minAroundPeople", temp2);
             intent.putExtra("numPeopleAround",getNumPeopleAround());
-            intent.putExtra("getMinuteAroundPeople",getMinAroundPeople());
-            intent.putExtra("getDistance",getDistance());
-            intent.putExtra("getRisk",getRisk());
+            intent.putExtra("getMinuteAroundPeople",getNumPeopleAround());
+            intent.putExtra("getDistance",getNumPeopleAround());
+            intent.putExtra("getRiskProfile",getRisk());
             startActivity(intent);
         }
-
     }
-
 }
