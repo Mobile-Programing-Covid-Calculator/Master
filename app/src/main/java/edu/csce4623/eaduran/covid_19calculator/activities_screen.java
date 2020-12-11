@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -124,35 +125,10 @@ public class activities_screen extends AppCompatActivity {
         conversationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerConversation.setAdapter(conversationAdapter);
 
-        spinnerConversation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                String text = getSpinnerConversation();
-//
-//                if(text=="Loud talking(shouting, talking over music, singing)[5x the risk]"){
-//                    isBad=true;
-//                    if(isBad==true){
-//                        Log.d("TRUE!!!!!!!!!!!!", "SOOOOOOOO TRUEEE!!!!!!");
-//                    }
-//                }
-                getSpinnerConversation();
-
-
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
 }
 
 
     //Getters for spinners
-    public String getSpinnerInteraction() {
-        String text = spinnerInteraction.getSelectedItem().toString();
-        Log.d("SpinnerInteraction", text);
-        return text;
-    }
 
     public String getSpinnerVentilation() {
         String text = spinnerVentilation.getSelectedItem().toString();
@@ -160,11 +136,6 @@ public class activities_screen extends AppCompatActivity {
         return text;
     }
 
-    public String getSpinnerDistance() {
-        String text = spinnerDistance.getSelectedItem().toString();
-        Log.d("SpinnerDistance", text);
-        return text;
-    }
 
     public String getSpinnerYourMask() {
         String text = spinnerYourMask.getSelectedItem().toString();
@@ -181,20 +152,6 @@ public class activities_screen extends AppCompatActivity {
     public String getSpinnerConversation() {
         String text = spinnerConversation.getSelectedItem().toString();
         Log.d("SpinnerConversation", text);
-        return text;
-    }
-
-    public String getSpinnerTolerance() {
-        String text = spinnerTolerance.getSelectedItem().toString();
-        Log.d("SpinnerTolerance", text);
-        return text;
-    }
-
-    //get editText for Duration
-
-    public String getDuration(){
-        String text = editTextDuration.getText().toString();
-        Log.d("Minutes people around  ", text);
         return text;
     }
 
@@ -217,8 +174,12 @@ public class activities_screen extends AppCompatActivity {
 
 
     public void openBadResultsPage(){
-        Intent intent = new Intent(this, results_screen_bad.class);
-        startActivity(intent);
+        if((getSpinnerConversation().equals("Conversation..."))|| getSpinnerTheirMask().equals("Their Mask type...") || getSpinnerVentilation().equals("Environment...") || getSpinnerYourMask().equals("Your mask type...")){
+            Toast.makeText(getApplicationContext(),"Please put inputs in all fields",Toast.LENGTH_LONG).show();
+        }else {
+            Intent intent = new Intent(this, results_screen_bad.class);
+            startActivity(intent);
+        }
 //        String temp = getDuration();
 //        Log.d("DURATION", getDuration());
 //        intent.putExtra("getDuration",getDuration());
@@ -226,16 +187,20 @@ public class activities_screen extends AppCompatActivity {
 
 
     public void openGoodResultsPage(){
-        Intent intent = new Intent(this, results_screen_good.class);
-        startActivity(intent);
+        if((getSpinnerConversation().equals("Conversation..."))|| getSpinnerTheirMask().equals("Their Mask type...") || getSpinnerVentilation().equals("Environment...") || getSpinnerYourMask().equals("Your mask type...")){
+            Toast.makeText(getApplicationContext(),"Please put inputs in all fields",Toast.LENGTH_LONG).show();
+        }else{
+            Intent intent = new Intent(this, results_screen_good.class);
+            startActivity(intent);
+        }
 //        String temp = getDuration();
 //        Log.d("DURATION", getDuration());
 //        intent.putExtra("getDuration",getDuration());
     }
 
     public void openRiskPage(){
-        Intent intent = new Intent(this,risk_screen.class);
-        startActivity(intent);
+            Intent intent = new Intent(this, risk_screen.class);
+            startActivity(intent);
     }
 
 
