@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -60,13 +61,13 @@ public class activities_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 selectionPage();
-                if(selectionPage()>50){
+                if(selectionPage()>100){
                     openBadResultsPage();
                 }else{
                     openBadResultsPage();
                 }
-                }
-            });
+            }
+        });
 
         //adapters and onitemclick getters for spinner
 
@@ -77,93 +78,44 @@ public class activities_screen extends AppCompatActivity {
         ventilationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerVentilation.setAdapter(ventilationAdapter);
 
-        spinnerVentilation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerVentilation();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-
-
-
         ArrayAdapter<String> yourMaskAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.yourMask));
         yourMaskAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerYourMask.setAdapter(yourMaskAdapter);
-
-        spinnerYourMask.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerYourMask();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-
-
 
         ArrayAdapter<String> theirMaskAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.theirMask));
         theirMaskAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTheirMask.setAdapter(theirMaskAdapter);
 
-        spinnerTheirMask.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerTheirMask();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-
-//get the bad screen to display
-
         ArrayAdapter<String> conversationAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.conversation));
         conversationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerConversation.setAdapter(conversationAdapter);
 
-        spinnerConversation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                String text = getSpinnerConversation();
-//
-//                if(text=="Loud talking(shouting, talking over music, singing)[5x the risk]"){
-//                    isBad=true;
-//                    if(isBad==true){
-//                        Log.d("TRUE!!!!!!!!!!!!", "SOOOOOOOO TRUEEE!!!!!!");
-//                    }
-//                }
-                getSpinnerConversation();
-
-
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
 }
+    public int selectionPage(){
+        int riskines=0;
+        if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
+            riskines=riskines+15;
+        }
+        int test = spinnerConversation.getSelectedItemPosition();
+        if(spinnerConversation.getSelectedItemPosition()==3){
+            counter++;
+            openBadResultsPage();
+        }
+        else{
+            openGoodResultsPage();
+        }
+
+        return riskines;
+    }
 
 
     //Getters for spinner
     public String getSpinnerVentilation() {
         String text = spinnerVentilation.getSelectedItem().toString();
         Log.d("SpinnerVentilation", text);
-        return text;
-    }
-
-    public String getSpinnerDistance() {
-        String text = spinnerDistance.getSelectedItem().toString();
-        Log.d("SpinnerDistance", text);
         return text;
     }
 
@@ -183,24 +135,6 @@ public class activities_screen extends AppCompatActivity {
         String text = spinnerConversation.getSelectedItem().toString();
         Log.d("SpinnerConversation", text);
         return text;
-    }
-
-    public int selectionPage(){
-        int riskines=0;
-        if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
-            riskines=riskines+15;
-        }
-        int test = spinnerConversation.getSelectedItemPosition();
-        //String testS = Integer.toString(test);
-        if(spinnerConversation.getSelectedItemPosition()==3){
-                counter++;
-                openBadResultsPage();
-            }
-            else{
-                openGoodResultsPage();
-            }
-
-    return riskines;
     }
 
 
