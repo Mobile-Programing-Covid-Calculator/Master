@@ -25,7 +25,7 @@ public class activities_screen extends AppCompatActivity {
     Spinner spinnerConversation;
     Spinner spinnerTolerance;
     EditText editTextDuration;
-    String getNumPeopleAround;
+    Integer getNumPeopleAround;
     String getMinuteAroundPeople;
     String getDistance;
     String getRiskProfile;
@@ -36,11 +36,11 @@ public class activities_screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activities_screen);
         //Globals
-        getNumPeopleAround=this.getIntent().getStringExtra("numPeopleAround");;
-        getMinuteAroundPeople=this.getIntent().getStringExtra("getMinuteAroundPeople");;
-        getDistance=this.getIntent().getStringExtra("getDistance");;
-        getRiskProfile=this.getIntent().getStringExtra("getRiskProfile");;
-        getActiveCases=this.getIntent().getStringExtra("activeCases");;
+        getNumPeopleAround=Integer.valueOf(this.getIntent().getStringExtra("numPeopleAround"));
+        getMinuteAroundPeople=this.getIntent().getStringExtra("getMinuteAroundPeople");
+        getDistance=this.getIntent().getStringExtra("getDistance");
+        getRiskProfile=this.getIntent().getStringExtra("getRiskProfile");
+        getActiveCases=this.getIntent().getStringExtra("activeCases");
         back = findViewById(R.id.backButtonActivites);
         submit = findViewById(R.id.activitiesSubmit);
         spinnerVentilation = (Spinner) findViewById(R.id.spinnerVentilation);
@@ -96,7 +96,7 @@ public class activities_screen extends AppCompatActivity {
 }
     public int selectionPage(){
         int riskiness=0;
-        int MaskRiskines=GetMaskLoad();
+        int MaskRiskines=GetMaskLoad()*getNumPeopleAround;
 
 
         return riskiness;
