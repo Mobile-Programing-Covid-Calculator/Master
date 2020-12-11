@@ -28,6 +28,7 @@ public class activities_screen extends AppCompatActivity {
     String getMinuteAroundPeople;
     String getDistance;
     String getRiskProfile;
+    String getActiveCases;
     int counter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class activities_screen extends AppCompatActivity {
         getMinuteAroundPeople=this.getIntent().getStringExtra("getMinuteAroundPeople");;
         getDistance=this.getIntent().getStringExtra("getDistance");;
         getRiskProfile=this.getIntent().getStringExtra("getRiskProfile");;
+        getActiveCases=this.getIntent().getStringExtra("activeCases");;
         back = findViewById(R.id.backButtonActivites);
         submit = findViewById(R.id.activitiesSubmit);
         spinnerVentilation = (Spinner) findViewById(R.id.spinnerVentilation);
@@ -57,9 +59,14 @@ public class activities_screen extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            selectionPage();
-            }
-        });
+                selectionPage();
+                if(selectionPage()>50){
+                    openBadResultsPage();
+                }else{
+                    openBadResultsPage();
+                }
+                }
+            });
 
         //adapters and onitemclick getters for spinner
 
@@ -147,13 +154,7 @@ public class activities_screen extends AppCompatActivity {
 }
 
 
-    //Getters for spinners
-    public String getSpinnerInteraction() {
-        String text = spinnerInteraction.getSelectedItem().toString();
-        Log.d("SpinnerInteraction", text);
-        return text;
-    }
-
+    //Getters for spinner
     public String getSpinnerVentilation() {
         String text = spinnerVentilation.getSelectedItem().toString();
         Log.d("SpinnerVentilation", text);
@@ -184,23 +185,11 @@ public class activities_screen extends AppCompatActivity {
         return text;
     }
 
-    public String getSpinnerTolerance() {
-        String text = spinnerTolerance.getSelectedItem().toString();
-        Log.d("SpinnerTolerance", text);
-        return text;
-    }
-
-    //get editText for Duration
-
-    public String getDuration(){
-        String text = editTextDuration.getText().toString();
-        Log.d("Minutes people around  ", text);
-        return text;
-    }
-
     public int selectionPage(){
-        //String text = getSpinnerConversation();
-       // Log.d("getSpinnerConvo", text);
+        int riskines=0;
+        if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
+            riskines=riskines+15;
+        }
         int test = spinnerConversation.getSelectedItemPosition();
         //String testS = Integer.toString(test);
         if(spinnerConversation.getSelectedItemPosition()==3){
@@ -211,25 +200,27 @@ public class activities_screen extends AppCompatActivity {
                 openGoodResultsPage();
             }
 
-
-        }
+    return riskines;
+    }
 
 
     public void openBadResultsPage(){
-        Intent intent = new Intent(this, results_screen_bad.class);
-        startActivity(intent);
-//        String temp = getDuration();
-//        Log.d("DURATION", getDuration());
-//        intent.putExtra("getDuration",getDuration());
+        if((getSpinnerConversation().equals("Conversation..."))|| getSpinnerTheirMask().equals("Their Mask type...") || getSpinnerVentilation().equals("Environment...") || getSpinnerYourMask().equals("Your mask type...")){
+            Toast.makeText(getApplicationContext(),"Please put inputs in all fields",Toast.LENGTH_LONG).show();
+        }else {
+            Intent intent = new Intent(this, results_screen_bad.class);
+            startActivity(intent);
+        }
     }
 
 
     public void openGoodResultsPage(){
-        Intent intent = new Intent(this, results_screen_good.class);
-        startActivity(intent);
-//        String temp = getDuration();
-//        Log.d("DURATION", getDuration());
-//        intent.putExtra("getDuration",getDuration());
+        if((getSpinnerConversation().equals("Conversation..."))|| getSpinnerTheirMask().equals("Their Mask type...") || getSpinnerVentilation().equals("Environment...") || getSpinnerYourMask().equals("Your mask type...")){
+            Toast.makeText(getApplicationContext(),"Please put inputs in all fields",Toast.LENGTH_LONG).show();
+        }else{
+            Intent intent = new Intent(this, results_screen_good.class);
+            startActivity(intent);
+        }
     }
 
     public void openRiskPage(){
