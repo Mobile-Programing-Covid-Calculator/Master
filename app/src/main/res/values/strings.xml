@@ -17,9 +17,6 @@
     <string name="back">BACK</string>
     <string name="calculate_risk">Calculating your risk:</string>
     <string name="num_people">How many people will be near you (within 15 feet)?</string>
-    <!--
-        Maximum: 5
-    -->
     <string name="results">Results</string>
     <string name="results_microcovids">~#### microCOVIDs*</string>-
     <string name="results_risk">How risky is this?</string>
@@ -32,9 +29,6 @@
     <string name="amountOfTime">Duration (Minutes)</string>
     <string name="avgdistance">How close are the nearby people on average?</string>
     <string name="activityTime">How long is the activity in minutes?</string>
-    <!--
-        Maximum: 60 minutes
-    -->
     <string name="activities_title">Activities</string>
 
 

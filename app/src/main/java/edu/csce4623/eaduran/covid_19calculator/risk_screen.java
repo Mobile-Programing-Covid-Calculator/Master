@@ -6,10 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-//import android.widget.EditText;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -104,11 +104,11 @@ public class risk_screen extends AppCompatActivity {
             for (int i =0; i< jsonArray.length()-1; i++){
                 JSONObject obj = jsonArray.getJSONObject(i);
                 if((obj.getString("state")).equals(state)&&(obj.getString("county").equals(county))){
-                    population="County Population : "+obj.getString("population");
+                    population="State : "+ state +"\n"+ " County : "+county;
                     String temp=obj.getString("actuals");
                     JSONArray obj2 = new JSONArray("["+temp+"]");
                     JSONObject param1 = obj2.getJSONObject(0);
-                    cases= "Active Cases : " + param1.getString("cases");
+                    cases= "County Population: "+obj.getString("population")+"\n"+" Active Cases: " + param1.getString("cases");
                 }
             }
         } catch (IOException | JSONException e) {
@@ -132,17 +132,32 @@ public class risk_screen extends AppCompatActivity {
         Log.d("Minutes people around  ", minAround);
         return minAround;
     }
-
-    public void openActivitiesPage(){
-        Intent intent = new Intent(this,activities_screen.class);
-        String temp = getNumPeopleAround();
-        String temp2 = getMinAroundPeople();
-        Log.d("numPeopleAround", temp);
-        Log.d("minAroundPeople", temp2);
-        intent.putExtra("numPeopleAround",getNumPeopleAround());
-        intent.putExtra("getMinuteAroundPeople",getMinAroundPeople());
-
-        startActivity(intent);
+    public String getRisk() {
+        String text = spinnerRisk.getSelectedItem().toString();
+        Log.d("Risk:    ", text);
+        return text;
+    }
+    public String getDistance() {
+        String text = spinnerDistance.getSelectedItem().toString();
+        Log.d("Distance:    ", text);
+        return text;
     }
 
+    public void openActivitiesPage(){
+        if((getNumPeopleAround().equals(""))|| getNumPeopleAround().equals("Avg Distance apart...") || getNumPeopleAround().equals("") || getRisk().equals("Please select one...")){
+            Toast.makeText(getApplicationContext(),"Please put inputs in all fields",Toast.LENGTH_LONG).show();
+        }
+        else{
+            Intent intent = new Intent(this,activities_screen.class);
+            String temp = getNumPeopleAround();
+            String temp2 = getMinAroundPeople();
+            Log.d("numPeopleAround", temp);
+            Log.d("minAroundPeople", temp2);
+            intent.putExtra("numPeopleAround",getNumPeopleAround());
+            intent.putExtra("getMinuteAroundPeople",getNumPeopleAround());
+            intent.putExtra("getDistance",getNumPeopleAround());
+            intent.putExtra("getRiskProfile",getRisk());
+            startActivity(intent);
+        }
+    }
 }

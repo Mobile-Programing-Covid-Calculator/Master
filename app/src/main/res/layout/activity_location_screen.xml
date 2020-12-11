@@ -8,6 +8,19 @@
     android:outlineProvider="background"
     tools:context=".location_screen">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="143dp"
+        android:layout_marginBottom="240dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FaqButton"
+        app:layout_constraintVertical_bias="0.52"
+        app:srcCompat="@mipmap/coronamap" />
+
     <TextView
         android:id="@+id/welcome_message2"
         android:layout_width="wrap_content"
@@ -41,7 +54,7 @@
         android:id="@+id/state_spinner"
         android:layout_width="180dp"
         android:layout_height="45dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="48dp"
         android:animateLayoutChanges="false"
         android:background="#FFFFFF"
         android:backgroundTint="#FFFFFF"
@@ -50,6 +63,7 @@
         android:scrollbars="horizontal|vertical"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_message2" />
 
@@ -57,13 +71,14 @@
         android:id="@+id/county_spinner"
         android:layout_width="180dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="24dp"
         android:background="#FFFFFF"
         android:entries="@array/counties"
         android:scrollbarAlwaysDrawVerticalTrack="false"
         android:scrollbars="horizontal|vertical"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/state_spinner" />
 
@@ -71,14 +86,27 @@
         android:id="@+id/location_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="50dp"
         android:background="#00BCD4"
         android:outlineProvider="bounds"
         android:text="@string/submit"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/county_spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/county_spinner"
+        app:layout_constraintVertical_bias="0.685" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="64dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="252dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/mapkey" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

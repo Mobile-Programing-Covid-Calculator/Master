@@ -24,23 +24,27 @@ public class activities_screen extends AppCompatActivity {
     Spinner spinnerConversation;
     Spinner spinnerTolerance;
     EditText editTextDuration;
-    boolean isBad = false;
+    String getNumPeopleAround;
+    String getMinuteAroundPeople;
+    String getDistance;
+    String getRiskProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activities_screen);
 
         //Globals
+        getNumPeopleAround=this.getIntent().getStringExtra("numPeopleAround");;
+        getMinuteAroundPeople=this.getIntent().getStringExtra("getMinuteAroundPeople");;
+        getDistance=this.getIntent().getStringExtra("getDistance");;
+        getRiskProfile=this.getIntent().getStringExtra("getRiskProfile");;
         back = findViewById(R.id.backButtonActivites);
         submit = findViewById(R.id.activitiesSubmit);
-        spinnerInteraction = (Spinner) findViewById(R.id.spinnerInteraction);
         spinnerVentilation = (Spinner) findViewById(R.id.spinnerVentilation);
-        spinnerDistance = (Spinner) findViewById(R.id.spinnerDistance);
         spinnerYourMask = (Spinner) findViewById(R.id.spinnerYourMask);
         spinnerTheirMask = (Spinner) findViewById(R.id.spinnerTheirMask);
         spinnerConversation = (Spinner) findViewById(R.id.spinnerConversation);
-        spinnerTolerance = (Spinner) findViewById(R.id.spinnerTolerance);
-        //editTextDuration = (EditText) findViewById(R.id.editTextDuration);
+
 
         //Set buttons
         back.setOnClickListener(new View.OnClickListener() {
@@ -59,21 +63,6 @@ public class activities_screen extends AppCompatActivity {
 
         //adapters and onitemclick getters for spinner
 
-        ArrayAdapter<String> interactionAdapter = new ArrayAdapter<>(activities_screen.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.interaction));
-        interactionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerInteraction.setAdapter(interactionAdapter);
-
-        spinnerInteraction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerInteraction();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
 
 
         ArrayAdapter<String> ventilationAdapter = new ArrayAdapter<>(activities_screen.this,
@@ -91,22 +80,6 @@ public class activities_screen extends AppCompatActivity {
             }
         });
 
-
-
-        ArrayAdapter<String> distanceAdapter = new ArrayAdapter<>(activities_screen.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.distance));
-        distanceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerDistance.setAdapter(distanceAdapter);
-
-        spinnerDistance.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerDistance();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
 
 
 
@@ -165,23 +138,6 @@ public class activities_screen extends AppCompatActivity {
                 getSpinnerConversation();
 
 
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-
-
-        ArrayAdapter<String> toleranceAdapter = new ArrayAdapter<>(activities_screen.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.tolerance));
-        toleranceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerTolerance.setAdapter(toleranceAdapter);
-
-        spinnerTolerance.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerTolerance();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -263,18 +219,18 @@ public class activities_screen extends AppCompatActivity {
     public void openBadResultsPage(){
         Intent intent = new Intent(this, results_screen_bad.class);
         startActivity(intent);
-        String temp = getDuration();
-        Log.d("DURATION", getDuration());
-        intent.putExtra("getDuration",getDuration());
+//        String temp = getDuration();
+//        Log.d("DURATION", getDuration());
+//        intent.putExtra("getDuration",getDuration());
     }
 
 
     public void openGoodResultsPage(){
         Intent intent = new Intent(this, results_screen_good.class);
         startActivity(intent);
-        String temp = getDuration();
-        Log.d("DURATION", getDuration());
-        intent.putExtra("getDuration",getDuration());
+//        String temp = getDuration();
+//        Log.d("DURATION", getDuration());
+//        intent.putExtra("getDuration",getDuration());
     }
 
     public void openRiskPage(){
