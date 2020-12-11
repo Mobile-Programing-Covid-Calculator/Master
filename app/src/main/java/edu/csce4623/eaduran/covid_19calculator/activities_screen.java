@@ -94,22 +94,6 @@ public class activities_screen extends AppCompatActivity {
         spinnerConversation.setAdapter(conversationAdapter);
 
 }
-    public int selectionPage(){
-        int riskines=0;
-        if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
-            riskines=riskines+15;
-        }
-        int test = spinnerConversation.getSelectedItemPosition();
-        if(spinnerConversation.getSelectedItemPosition()==3){
-            counter++;
-            openBadResultsPage();
-        }
-        else{
-            openGoodResultsPage();
-        }
-
-        return riskines;
-    }
 
 
     //Getters for spinner
@@ -137,8 +121,6 @@ public class activities_screen extends AppCompatActivity {
         return text;
     }
 
-<<<<<<< Updated upstream
-=======
     public int selectionPage(){
         int riskiness=0;
         if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
@@ -166,7 +148,6 @@ public class activities_screen extends AppCompatActivity {
     return riskiness;
     }
 
->>>>>>> Stashed changes
 
     public void openBadResultsPage(){
         if((getSpinnerConversation().equals("Conversation..."))|| getSpinnerTheirMask().equals("Their Mask type...") || getSpinnerVentilation().equals("Environment...") || getSpinnerYourMask().equals("Your mask type...")){
