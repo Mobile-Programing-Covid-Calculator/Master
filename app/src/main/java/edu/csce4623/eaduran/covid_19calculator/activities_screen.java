@@ -61,7 +61,7 @@ public class activities_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 selectionPage();
-                if(selectionPage()>100){
+                if(selectionPage()>500){
                     openBadResultsPage();
                 }else{
                     openBadResultsPage();
@@ -97,10 +97,28 @@ public class activities_screen extends AppCompatActivity {
     public int selectionPage(){
         int riskiness=0;
         int MaskRiskines=GetMaskLoad()*getNumPeopleAround;
+        int closenes= getClosenes();
 
 
         return riskiness;
     }
+
+    private int getClosenes() {
+        int closenes=0;
+        if(getDistance=="Kissing[2x the risk"){
+            closenes=50;
+        }else if(getDistance=="Close (&lt;1ft apart)[2x the risk]"){
+            closenes=30;
+        }else if(getDistance=="Normal socializing (~3ft apart)[baseline risk]"){
+            closenes=10;
+        }else if(getDistance=="6ft[1/2 the risk]"){
+            closenes=5;
+        }else if(getDistance=="10ft[1/4 the risk]"){
+            closenes=1;
+        }
+        return closenes;
+    }
+
     public int GetMaskLoad(){
         int MaskLoad=0;
         if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
@@ -117,7 +135,6 @@ public class activities_screen extends AppCompatActivity {
         }
         return MaskLoad;
     }
-
     //Getters for spinner
     public String getSpinnerVentilation() {
         String text = spinnerVentilation.getSelectedItem().toString();
