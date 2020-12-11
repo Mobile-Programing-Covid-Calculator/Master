@@ -39,7 +39,6 @@ public class activities_screen extends AppCompatActivity {
         getNumPeopleAround=Integer.valueOf(this.getIntent().getStringExtra("numPeopleAround"));
         getMinuteAroundPeople=this.getIntent().getStringExtra("getMinuteAroundPeople");
         getDistance=this.getIntent().getStringExtra("getDistance");
-        getRiskProfile=this.getIntent().getStringExtra("getRiskProfile");
         getActiveCases=this.getIntent().getStringExtra("activeCases");
         back = findViewById(R.id.backButtonActivites);
         submit = findViewById(R.id.activitiesSubmit);
