@@ -157,6 +157,7 @@ public class risk_screen extends AppCompatActivity {
             intent.putExtra("getMinuteAroundPeople",getNumPeopleAround());
             intent.putExtra("getDistance",getNumPeopleAround());
             intent.putExtra("getRiskProfile",getRisk());
+            intent.putExtra("activeCases",cases);
             startActivity(intent);
         }
     }
