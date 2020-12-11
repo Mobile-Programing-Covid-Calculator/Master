@@ -145,7 +145,7 @@ public class activities_screen extends AppCompatActivity {
                 convRiskines = 2;
                 break;
             case "Loud talking(shouting, talking over music, singing)[5x the risk]":
-                convRiskines = 10;
+                convRiskines = 20;
                 break;
         }
         return convRiskines;
@@ -161,10 +161,10 @@ public class activities_screen extends AppCompatActivity {
         int closenes=0;
         switch (getDistance) {
             case "Kissing [2x the risk]":
-                closenes = 25;
+                closenes = 40;
                 break;
             case "Close (&lt;1ft apart)[2x the risk]":
-                closenes = 20;
+                closenes = 30;
                 break;
             case "Normal socializing (~3ft apart)[baseline risk]":
                 closenes = 10;
@@ -183,7 +183,7 @@ public class activities_screen extends AppCompatActivity {
         int MaskLoad=0;
         switch (getSpinnerYourMask()) {
             case "No Mask or poorly-worn mask[baseline risk]":
-                MaskLoad = 15;
+                MaskLoad = 20;
                 break;
             case "Cotton mask, bandanna, or buff[baseline risk]":
                 MaskLoad = 8;
@@ -200,7 +200,7 @@ public class activities_screen extends AppCompatActivity {
         int MaskLoad=0;
         switch (getSpinnerTheirMask()) {
             case "No Mask or poorly-worn mask[baseline risk]":
-                MaskLoad = 15;
+                MaskLoad = 20;
                 break;
             case "Cotton mask, bandanna, or buff[baseline risk]":
                 MaskLoad = 8;
