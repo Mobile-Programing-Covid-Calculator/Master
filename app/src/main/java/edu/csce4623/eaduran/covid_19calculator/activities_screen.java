@@ -29,11 +29,11 @@ public class activities_screen extends AppCompatActivity {
     String getMinuteAroundPeople;
     String getDistance;
     String getRiskProfile;
+    int counter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activities_screen);
-
         //Globals
         getNumPeopleAround=this.getIntent().getStringExtra("numPeopleAround");;
         getMinuteAroundPeople=this.getIntent().getStringExtra("getMinuteAroundPeople");;
@@ -181,14 +181,14 @@ public class activities_screen extends AppCompatActivity {
        // Log.d("getSpinnerConvo", text);
         int test = spinnerConversation.getSelectedItemPosition();
         String testS = Integer.toString(test);
-        Log.d("TESTSSSSSSSSSSSSSSSSS: ", testS);
         if(spinnerConversation.getSelectedItemPosition()==3){
+                counter++;
                 openBadResultsPage();
-                Log.d("TRUE!!!!!!!!!!!!", "SOOOOOOOO TRUEEE!!!!!!");
             }
             else{
                 openGoodResultsPage();
             }
+
 
         }
 
