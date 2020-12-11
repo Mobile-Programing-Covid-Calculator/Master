@@ -25,20 +25,22 @@ public class activities_screen extends AppCompatActivity {
     Spinner spinnerConversation;
     Spinner spinnerTolerance;
     EditText editTextDuration;
-    String getNumPeopleAround;
+    Integer getNumPeopleAround;
     String getMinuteAroundPeople;
     String getDistance;
     String getRiskProfile;
+    String getActiveCases;
     int counter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activities_screen);
         //Globals
-        getNumPeopleAround=this.getIntent().getStringExtra("numPeopleAround");;
-        getMinuteAroundPeople=this.getIntent().getStringExtra("getMinuteAroundPeople");;
-        getDistance=this.getIntent().getStringExtra("getDistance");;
-        getRiskProfile=this.getIntent().getStringExtra("getRiskProfile");;
+        getNumPeopleAround=Integer.valueOf(this.getIntent().getStringExtra("numPeopleAround"));
+        getMinuteAroundPeople=this.getIntent().getStringExtra("getMinuteAroundPeople");
+        getDistance=this.getIntent().getStringExtra("getDistance");
+        getRiskProfile=this.getIntent().getStringExtra("getRiskProfile");
+        getActiveCases=this.getIntent().getStringExtra("activeCases");
         back = findViewById(R.id.backButtonActivites);
         submit = findViewById(R.id.activitiesSubmit);
         spinnerVentilation = (Spinner) findViewById(R.id.spinnerVentilation);
@@ -58,7 +60,12 @@ public class activities_screen extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            selectionPage();
+                selectionPage();
+                if(selectionPage()>100){
+                    openBadResultsPage();
+                }else{
+                    openBadResultsPage();
+                }
             }
         });
 
@@ -71,54 +78,15 @@ public class activities_screen extends AppCompatActivity {
         ventilationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerVentilation.setAdapter(ventilationAdapter);
 
-        spinnerVentilation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerVentilation();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-
-
-
         ArrayAdapter<String> yourMaskAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.yourMask));
         yourMaskAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerYourMask.setAdapter(yourMaskAdapter);
 
-        spinnerYourMask.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerYourMask();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-
-
-
         ArrayAdapter<String> theirMaskAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.theirMask));
         theirMaskAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTheirMask.setAdapter(theirMaskAdapter);
-
-        spinnerTheirMask.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getSpinnerTheirMask();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-
-//get the bad screen to display
 
         ArrayAdapter<String> conversationAdapter = new ArrayAdapter<>(activities_screen.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.conversation));
@@ -126,16 +94,36 @@ public class activities_screen extends AppCompatActivity {
         spinnerConversation.setAdapter(conversationAdapter);
 
 }
+    public int selectionPage(){
+        int riskiness=0;
+        int MaskRiskines=GetMaskLoad()*getNumPeopleAround;
 
 
-    //Getters for spinners
+        return riskiness;
+    }
+    public int GetMaskLoad(){
+        int MaskLoad=0;
+        if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
+            MaskLoad=5;
+        }
+        else if(getSpinnerYourMask()=="Cotton mask, bandanna, or buff[baseline risk]") {
+            MaskLoad=3;
+        }
+        else if(getSpinnerYourMask()=="Surgical mask or mask with PM2.5 filter insert[1/2 the risk]") {
+            MaskLoad=2;
+        }
+        else if(getSpinnerYourMask()=="Well fitting, well sealed N95 respirator[1/10 the risk]") {
+            MaskLoad=1;
+        }
+        return MaskLoad;
+    }
 
+    //Getters for spinner
     public String getSpinnerVentilation() {
         String text = spinnerVentilation.getSelectedItem().toString();
         Log.d("SpinnerVentilation", text);
         return text;
     }
-
 
     public String getSpinnerYourMask() {
         String text = spinnerYourMask.getSelectedItem().toString();
@@ -155,22 +143,7 @@ public class activities_screen extends AppCompatActivity {
         return text;
     }
 
-    public void selectionPage(){
 
-        //String text = getSpinnerConversation();
-       // Log.d("getSpinnerConvo", text);
-        int test = spinnerConversation.getSelectedItemPosition();
-        String testS = Integer.toString(test);
-        if(spinnerConversation.getSelectedItemPosition()==3){
-                counter++;
-                openBadResultsPage();
-            }
-            else{
-                openGoodResultsPage();
-            }
-
-
-        }
 
 
     public void openBadResultsPage(){
@@ -180,9 +153,6 @@ public class activities_screen extends AppCompatActivity {
             Intent intent = new Intent(this, results_screen_bad.class);
             startActivity(intent);
         }
-//        String temp = getDuration();
-//        Log.d("DURATION", getDuration());
-//        intent.putExtra("getDuration",getDuration());
     }
 
 
@@ -193,14 +163,11 @@ public class activities_screen extends AppCompatActivity {
             Intent intent = new Intent(this, results_screen_good.class);
             startActivity(intent);
         }
-//        String temp = getDuration();
-//        Log.d("DURATION", getDuration());
-//        intent.putExtra("getDuration",getDuration());
     }
 
     public void openRiskPage(){
-            Intent intent = new Intent(this, risk_screen.class);
-            startActivity(intent);
+        Intent intent = new Intent(this,risk_screen.class);
+        startActivity(intent);
     }
 
 
