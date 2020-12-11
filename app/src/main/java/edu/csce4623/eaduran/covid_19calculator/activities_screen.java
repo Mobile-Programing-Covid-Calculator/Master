@@ -94,13 +94,39 @@ public class activities_screen extends AppCompatActivity {
 
 }
     public int selectionPage(){
-        int riskiness=0;
-        int MaskRiskines=GetMaskLoad()*getNumPeopleAround;
-        int closenesRiskines= getClosenes();
-        int durationRiskines= getDurationRiskines();
-
-
+        int riskiness=getClosenes()+getDurationRiskines()+GetMaskLoad()*getNumPeopleAround*GetTheirMaskLoad()
+                +getConversationRiskines()+getEnvironmentRiskines();
         return riskiness;
+    }
+
+    private int getEnvironmentRiskines() {
+        int envRiskines=0;
+        if(getSpinnerVentilation()=="Inside[baseline risk]"){
+            envRiskines=100;
+        }else if(getSpinnerVentilation()=="Outside[1/20 the risk]"){
+            envRiskines=5;
+        }else if(getSpinnerVentilation()=="A train with air filtration[1/4 the risk]"){
+            envRiskines=25;
+        }else if(getSpinnerVentilation()=="An airplane[1/6 the risk]"){
+            envRiskines=16;
+        }else if(getSpinnerVentilation()=="A moving car with the windows rolled down[1/4 the risk]"){
+            envRiskines=25;
+        }else if(getSpinnerVentilation()=="A space with one or more sides open the the outdoors[1/4 the risk]"){
+            envRiskines=25;
+        }
+        return envRiskines;
+    }
+
+    private int getConversationRiskines() {
+        int convRiskines=0;
+        if(getSpinnerConversation()=="Not talking(such as quietly riding the train)[1/5 the risk]"){
+            convRiskines=5;
+        }else if(getSpinnerConversation()=="Normal conversation[baseline risk]"){
+            convRiskines=20;
+        }else if(getSpinnerConversation()=="Loud talking(shouting, talking over music, singing)[5x the risk]"){
+            convRiskines=35;
+        }
+        return convRiskines;
     }
 
     private int getDurationRiskines() {
@@ -136,6 +162,21 @@ public class activities_screen extends AppCompatActivity {
             MaskLoad=2;
         }
         else if(getSpinnerYourMask()=="Well fitting, well sealed N95 respirator[1/10 the risk]") {
+            MaskLoad=1;
+        }
+        return MaskLoad;
+    }public int GetTheirMaskLoad(){
+        int MaskLoad=0;
+        if(getSpinnerTheirMask()=="No Mask or poorly-worn[baseline risk]"){
+            MaskLoad=5;
+        }
+        else if(getSpinnerTheirMask()=="Cotton mask, bandanna, or buff[baseline risk]") {
+            MaskLoad=3;
+        }
+        else if(getSpinnerTheirMask()=="Surgical mask or mask with PM2.5 filter insert[1/2 the risk]") {
+            MaskLoad=2;
+        }
+        else if(getSpinnerTheirMask()=="Well fitting, well sealed N95 respirator[1/10 the risk]") {
             MaskLoad=1;
         }
         return MaskLoad;
