@@ -1,5 +1,6 @@
 package edu.csce4623.eaduran.covid_19calculator;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,11 +13,14 @@ public class results_screen_good extends AppCompatActivity {
     Button newTest;
     Button btnFAQResults;
     Button backToRisk;
+    TextView tvResultScore;
+    String getResultScore;
 //    private TextView riskNumPeople;
 //    private TextView resultsRisk2;
 //    private TextView resultsRiskAllocation;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +31,11 @@ public class results_screen_good extends AppCompatActivity {
         newTest = findViewById(R.id.newtestButton);
         btnFAQResults = findViewById(R.id.btnFAQResults);
         backToRisk = findViewById(R.id.backButton3);
+        tvResultScore = findViewById(R.id.tvResultScore);
 
+        //getResultScore=Integer.valueOf(this.getIntent().getStringExtra("selectionPage()"));
+        getResultScore= this.getIntent().getStringExtra("selectionPage()");
+        tvResultScore.setText("Score: " + getResultScore);
         //Open FAQ/Resources page
         btnFAQResults.setOnClickListener(new View.OnClickListener() {
             @Override

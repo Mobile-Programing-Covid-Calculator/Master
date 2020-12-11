@@ -25,21 +25,33 @@
 -->
 
     <TextView
+        android:id="@+id/tvResultScore2"
+        android:layout_width="102dp"
+        android:layout_height="37dp"
+        android:text="Result Score"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/resultsRiskResult2"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="@+id/resultsRiskResult2"
+        app:layout_constraintTop_toTopOf="@+id/resultsRiskResult2"
+        app:layout_constraintVertical_bias="0.303" />
+
+    <TextView
         android:id="@+id/resultsRiskResult2"
         android:layout_width="373dp"
         android:layout_height="152dp"
         android:layout_marginStart="65dp"
         android:layout_marginEnd="65dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="168dp"
         android:text="RISKY"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/newtestButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/riskNumPeople"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/riskNumPeople" />
 
     <TextView
         android:id="@+id/welcome_message3"

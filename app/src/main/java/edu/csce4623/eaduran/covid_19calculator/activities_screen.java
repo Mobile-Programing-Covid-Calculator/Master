@@ -59,7 +59,9 @@ public class activities_screen extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selectionPage()>100){
+                int temp = 0;
+                temp = Integer.parseInt(selectionPage());
+                if(temp>100){
                     openBadResultsPage();
                 }else{
                     openGoodResultsPage();
@@ -92,9 +94,11 @@ public class activities_screen extends AppCompatActivity {
         spinnerConversation.setAdapter(conversationAdapter);
 
 }
-    public int selectionPage(){
+    public String selectionPage(){
         int riskiness=0;
-        riskiness= getClosenes()+(int) getDurationRiskines()+(GetMaskLoad()*getNumPeopleAround*GetTheirMaskLoad())+getConversationRiskines()+getEnvironmentRiskines();
+        String riskinessStr = "";
+        riskiness= getClosenes()+(int) getDurationRiskines()+(GetMaskLoad()+getNumPeopleAround+GetTheirMaskLoad())+getConversationRiskines()+getEnvironmentRiskines();
+        riskinessStr=String.valueOf(riskiness);
         Log.d("numpeople", String.valueOf(getNumPeopleAround));
         Log.d("getClosenes()", String.valueOf(getClosenes()));
         Log.d("getDurationRiskines()", String.valueOf(getDurationRiskines()));
@@ -103,7 +107,7 @@ public class activities_screen extends AppCompatActivity {
         Log.d("onmentRiskines()", String.valueOf(getEnvironmentRiskines()));
         Log.d("tionRiskines()", String.valueOf(getConversationRiskines()));
         Log.d("##############", String.valueOf(riskiness));
-        return riskiness;
+        return riskinessStr;
     }
 
     private int getEnvironmentRiskines() {
@@ -243,6 +247,7 @@ public class activities_screen extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Please put inputs in all fields",Toast.LENGTH_LONG).show();
         }else {
             Intent intent = new Intent(this, results_screen_bad.class);
+            intent.putExtra("selectionPage()", selectionPage());
             startActivity(intent);
         }
     }
@@ -253,6 +258,7 @@ public class activities_screen extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Please put inputs in all fields",Toast.LENGTH_LONG).show();
         }else{
             Intent intent = new Intent(this, results_screen_good.class);
+            intent.putExtra("selectionPage()", selectionPage());
             startActivity(intent);
         }
     }

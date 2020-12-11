@@ -137,6 +137,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_message3"
         app:srcCompat="@mipmap/checkmark" />
+
+    <TextView
+        android:id="@+id/tvResultScore"
+        android:layout_width="102dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="56dp"
+        android:text="Result Score"
+        app:layout_constraintEnd_toEndOf="@+id/resultsRiskResult"
+        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintStart_toStartOf="@+id/resultsRiskResult"
+        app:layout_constraintTop_toTopOf="@+id/resultsRiskResult" />
     <!--
         <TextView
             android:id="@+id/resultsRisk2"
