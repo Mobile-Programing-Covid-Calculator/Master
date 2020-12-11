@@ -26,7 +26,7 @@ public class activities_screen extends AppCompatActivity {
     Spinner spinnerTolerance;
     EditText editTextDuration;
     Integer getNumPeopleAround;
-    String getMinuteAroundPeople;
+    Integer getMinuteAroundPeople;
     String getDistance;
     String getRiskProfile;
     String getActiveCases;
@@ -37,7 +37,7 @@ public class activities_screen extends AppCompatActivity {
         setContentView(R.layout.activity_activities_screen);
         //Globals
         getNumPeopleAround=Integer.valueOf(this.getIntent().getStringExtra("numPeopleAround"));
-        getMinuteAroundPeople=this.getIntent().getStringExtra("getMinuteAroundPeople");
+        getMinuteAroundPeople=Integer.valueOf(this.getIntent().getStringExtra("getMinuteAroundPeople"));
         getDistance=this.getIntent().getStringExtra("getDistance");
         getActiveCases=this.getIntent().getStringExtra("activeCases");
         back = findViewById(R.id.backButtonActivites);
@@ -96,10 +96,16 @@ public class activities_screen extends AppCompatActivity {
     public int selectionPage(){
         int riskiness=0;
         int MaskRiskines=GetMaskLoad()*getNumPeopleAround;
-        int closenes= getClosenes();
+        int closenesRiskines= getClosenes();
+        int durationRiskines= getDurationRiskines();
 
 
         return riskiness;
+    }
+
+    private int getDurationRiskines() {
+        int durationRiskines=(getMinuteAroundPeople/30)*6;;
+        return durationRiskines;
     }
 
     private int getClosenes() {
