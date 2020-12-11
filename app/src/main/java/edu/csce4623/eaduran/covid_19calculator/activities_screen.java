@@ -94,22 +94,6 @@ public class activities_screen extends AppCompatActivity {
         spinnerConversation.setAdapter(conversationAdapter);
 
 }
-    public int selectionPage(){
-        int riskines=0;
-        if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
-            riskines=riskines+15;
-        }
-        int test = spinnerConversation.getSelectedItemPosition();
-        if(spinnerConversation.getSelectedItemPosition()==3){
-            counter++;
-            openBadResultsPage();
-        }
-        else{
-            openGoodResultsPage();
-        }
-
-        return riskines;
-    }
 
 
     //Getters for spinner
@@ -135,6 +119,33 @@ public class activities_screen extends AppCompatActivity {
         String text = spinnerConversation.getSelectedItem().toString();
         Log.d("SpinnerConversation", text);
         return text;
+    }
+
+    public int selectionPage(){
+        int riskiness=0;
+        if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
+            riskiness=riskiness+15;
+        }
+        else if(getSpinnerYourMask()=="Cotton mask, bandanna, or buff[baseline risk]") {
+            riskiness+=8;
+        }
+        else if(getSpinnerYourMask()=="Surgical mask or mask with PM2.5 filter insert[1/2 the risk]") {
+            riskiness+=2;
+        }
+        else if(getSpinnerYourMask()=="Well fitting, well sealed N95 respirator[1/10 the risk]") {
+            //riskiness doesn't change
+        }
+        int test = spinnerConversation.getSelectedItemPosition();
+        //String testS = Integer.toString(test);
+        if(spinnerConversation.getSelectedItemPosition()==3){
+                counter++;
+                openBadResultsPage();
+            }
+            else{
+                openGoodResultsPage();
+            }
+
+    return riskiness;
     }
 
 
