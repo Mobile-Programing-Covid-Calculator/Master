@@ -32,27 +32,69 @@
     <string name="activities_title">Activities</string>
 
 
-    <string-array name="riskProfiles">
-        <item>Please select one...</item>
-        <item>An average person in your area</item>
-        <item>An essential or front-line worker in your area</item>
-        <item>Someone in your area that is not an essential or front-line worker</item>
-        <item>Lives alone and only grocery shops</item>
-        <item>Lives with partner, both of whom only grocery shop</item>
-        <item>In a closed pod of 4 people(who do not go to work or socialize)</item>
-        <item>In a closed pod of 10 people(who do not go to work or socialize)</item>
-        <item>In a closed pod of 20 people(who do not go to work or socialize)</item>
-        <item>Has 1 close contact(Incl. roommates) who socializes but does not work</item>
-        <item>Has 4 close contacts(Incl. roommates) who socialize but do not work</item>
-        <item>Has 10 close contacts(Incl. roommates) who socialize but do not work</item>
-        <item>Has 1 close contact(Incl. roommates) who is an essential worker</item>
-        <item>Goes to bars regularly</item>
-        <item>Currently infected with COVID-19</item>
+
+
+    <string-array name="counties">
+        <item>Choose your county...</item>
+        <item>C1</item>
+        <item>C2</item>
     </string-array>
 
-    <string-array name="interaction">
-        <item>ONE TIME INTERACTION!!</item>
+    <string-array name="states">
+        <item>Choose your state...</item>
+        <item>Alabama</item>
+        <item>Alaska</item>
+        <item>Arizona</item>
+        <item>Arkansas</item>
+        <item>California</item>
+        <item>Colorado</item>
+        <item>Connecticut</item>
+        <item>Delaware</item>
+        <item>Florida</item>
+        <item>Georgia</item>
+        <item>Hawaii</item>
+        <item>Idaho</item>
+        <item>Illinois</item>
+        <item>Indiana</item>
+        <item>Iowa</item>
+        <item>Kansas</item>
+        <item>Kentucky</item>
+        <item>Louisiana</item>
+        <item>Maine</item>
+        <item>Maryland</item>
+        <item>Massachusetts</item>
+        <item>Michigan</item>
+        <item>Minnesota</item>
+        <item>Mississippi</item>
+        <item>Missouri</item>
+        <item>Montana</item>
+        <item>Nebraska</item>
+        <item>Nevada</item>
+        <item>New Hampshire</item>
+        <item>New Jersey</item>
+        <item>New Mexico</item>
+        <item>New York</item>
+        <item>North Carolina</item>
+        <item>North Dakota</item>
+        <item>Ohio</item>
+        <item>Oklahoma</item>
+        <item>Oregon</item>
+        <item>Pennsylvania</item>
+        <item>Rhode Island</item>
+        <item>South Carolina</item>
+        <item>South Dakota</item>
+        <item>Tennessee</item>
+        <item>Texas</item>
+        <item>Utah</item>
+        <item>Vermont</item>
+        <item>Virginia</item>
+        <item>Washington</item>
+        <item>West Virginia</item>
+        <item>Wisconsin</item>
+        <item>Wyoming</item>
     </string-array>
+
+    
 
     <string-array name="ventilation">
         <item>Environment....</item>
@@ -65,11 +107,6 @@
         <item></item>
     </string-array>
 
-    <string-array name="distance">
-        <item>SHOW ME (distance)</item>
-        <item>Kissing [2x the risk]</item>
-        <item></item>
-    </string-array>
 
     <string-array name="averageDistance">
         <item>Avg Distance apart...</item>
@@ -103,9 +140,7 @@
         <item>Loud talking(shouting, talking over music, singing)[5x the risk]</item>
     </string-array>
 
-    <string-array name="tolerance">
-        <item>RISK TOLERANCE???</item>
-    </string-array>
+
 
 
 </resources>
