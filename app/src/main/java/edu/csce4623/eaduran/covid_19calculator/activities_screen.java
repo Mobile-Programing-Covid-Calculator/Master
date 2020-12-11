@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -132,6 +131,26 @@ public class activities_screen extends AppCompatActivity {
         conversationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerConversation.setAdapter(conversationAdapter);
 
+        spinnerConversation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                String text = getSpinnerConversation();
+//
+//                if(text=="Loud talking(shouting, talking over music, singing)[5x the risk]"){
+//                    isBad=true;
+//                    if(isBad==true){
+//                        Log.d("TRUE!!!!!!!!!!!!", "SOOOOOOOO TRUEEE!!!!!!");
+//                    }
+//                }
+                getSpinnerConversation();
+
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
 }
 
 
@@ -142,6 +161,11 @@ public class activities_screen extends AppCompatActivity {
         return text;
     }
 
+    public String getSpinnerDistance() {
+        String text = spinnerDistance.getSelectedItem().toString();
+        Log.d("SpinnerDistance", text);
+        return text;
+    }
 
     public String getSpinnerYourMask() {
         String text = spinnerYourMask.getSelectedItem().toString();
@@ -167,7 +191,7 @@ public class activities_screen extends AppCompatActivity {
             riskines=riskines+15;
         }
         int test = spinnerConversation.getSelectedItemPosition();
-        String testS = Integer.toString(test);
+        //String testS = Integer.toString(test);
         if(spinnerConversation.getSelectedItemPosition()==3){
                 counter++;
                 openBadResultsPage();
@@ -200,8 +224,8 @@ public class activities_screen extends AppCompatActivity {
     }
 
     public void openRiskPage(){
-            Intent intent = new Intent(this, risk_screen.class);
-            startActivity(intent);
+        Intent intent = new Intent(this,risk_screen.class);
+        startActivity(intent);
     }
 
 
