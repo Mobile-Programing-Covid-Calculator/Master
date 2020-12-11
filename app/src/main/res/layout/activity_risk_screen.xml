@@ -10,43 +10,18 @@
         android:id="@+id/riskSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="131dp"
+        android:layout_marginBottom="106dp"
         android:background="#00BCD4"
         android:text="@string/submit"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerRiskProfile" />
-
-    <Spinner
-        android:id="@+id/spinnerRiskProfile"
-        android:layout_width="312dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="65dp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/riskPeopleNear3" />
-
-    <TextView
-        android:id="@+id/riskPeopleNear3"
-        android:layout_width="334dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="65dp"
-        android:text="@string/riskProfile"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/riskNumPeopleInput2" />
+        app:layout_constraintTop_toBottomOf="@+id/riskNumPeopleInput2"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/riskNumPeopleInput2"

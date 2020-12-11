@@ -48,7 +48,6 @@ public class risk_screen extends AppCompatActivity {
         Cases= findViewById(R.id.tvActiveCases);
         Population= findViewById(R.id.tvCountyPopulation);
 
-        spinnerRisk = (Spinner) findViewById(R.id.spinnerRiskProfile);
         spinnerDistance = (Spinner) findViewById(R.id.spinnerAvgDistance);
 
         peopleNearby = (EditText) findViewById(R.id.riskNumPeopleInput);
@@ -68,10 +67,6 @@ public class risk_screen extends AppCompatActivity {
         distanceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDistance.setAdapter(distanceAdapter);
 
-        ArrayAdapter<String> riskAdapter = new ArrayAdapter<>(risk_screen.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.riskProfiles));
-        riskAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-       spinnerRisk.setAdapter(riskAdapter);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,11 +127,6 @@ public class risk_screen extends AppCompatActivity {
         Log.d("Minutes people around  ", minAround);
         return minAround;
     }
-    public String getRisk() {
-        String text = spinnerRisk.getSelectedItem().toString();
-        Log.d("Risk:    ", text);
-        return text;
-    }
     public String getDistance() {
         String text = spinnerDistance.getSelectedItem().toString();
         Log.d("Distance:    ", text);
@@ -144,7 +134,7 @@ public class risk_screen extends AppCompatActivity {
     }
 
     public void openActivitiesPage(){
-        if((getNumPeopleAround().equals(""))|| getNumPeopleAround().equals("Avg Distance apart...") || getNumPeopleAround().equals("") || getRisk().equals("Please select one...")){
+        if((getNumPeopleAround().equals(""))|| getDistance().equals("Avg Distance apart...") || getMinAroundPeople().equals("")){
             Toast.makeText(getApplicationContext(),"Please put inputs in all fields",Toast.LENGTH_LONG).show();
         }
         else{
@@ -155,8 +145,7 @@ public class risk_screen extends AppCompatActivity {
             Log.d("minAroundPeople", temp2);
             intent.putExtra("numPeopleAround",getNumPeopleAround());
             intent.putExtra("getMinuteAroundPeople",getNumPeopleAround());
-            intent.putExtra("getDistance",getNumPeopleAround());
-            intent.putExtra("getRiskProfile",getRisk());
+            intent.putExtra("getDistance",getDistance());
             intent.putExtra("activeCases",cases);
             startActivity(intent);
         }
