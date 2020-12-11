@@ -59,11 +59,10 @@ public class activities_screen extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectionPage();
-                if(selectionPage()>500){
+                if(selectionPage()>100){
                     openBadResultsPage();
                 }else{
-                    openBadResultsPage();
+                    openGoodResultsPage();
                 }
             }
         });
@@ -94,90 +93,118 @@ public class activities_screen extends AppCompatActivity {
 
 }
     public int selectionPage(){
-        int riskiness=getClosenes()+getDurationRiskines()+GetMaskLoad()*getNumPeopleAround*GetTheirMaskLoad()
+        int riskiness=0;
+        riskiness= getClosenes()+getDurationRiskines()+(GetMaskLoad()*getNumPeopleAround*GetTheirMaskLoad())
                 +getConversationRiskines()+getEnvironmentRiskines();
+        Log.d("numpeople", String.valueOf(getNumPeopleAround));
+        Log.d("getClosenes()", String.valueOf(getClosenes()));
+        Log.d("getDurationRiskines()", String.valueOf(getDurationRiskines()));
+        Log.d("GetMaskLoad()", String.valueOf(GetMaskLoad()));
+        Log.d("GetTheirMaskLoad()", String.valueOf(GetTheirMaskLoad()));
+        Log.d("onmentRiskines()", String.valueOf(getEnvironmentRiskines()));
+        Log.d("tionRiskines()", String.valueOf(getConversationRiskines()));
+        Log.d("##############", String.valueOf(riskiness));
         return riskiness;
     }
 
     private int getEnvironmentRiskines() {
         int envRiskines=0;
-        if(getSpinnerVentilation()=="Inside[baseline risk]"){
-            envRiskines=100;
-        }else if(getSpinnerVentilation()=="Outside[1/20 the risk]"){
-            envRiskines=5;
-        }else if(getSpinnerVentilation()=="A train with air filtration[1/4 the risk]"){
-            envRiskines=25;
-        }else if(getSpinnerVentilation()=="An airplane[1/6 the risk]"){
-            envRiskines=16;
-        }else if(getSpinnerVentilation()=="A moving car with the windows rolled down[1/4 the risk]"){
-            envRiskines=25;
-        }else if(getSpinnerVentilation()=="A space with one or more sides open the the outdoors[1/4 the risk]"){
-            envRiskines=25;
+        switch (getSpinnerVentilation()) {
+            case "Inside[baseline risk]":
+                envRiskines = 35;
+                break;
+            case "Outside[1/20 the risk]":
+                envRiskines = 2;
+                break;
+            case "A train with air filtration[1/4 the risk]":
+                envRiskines = 8;
+                break;
+            case "An airplane[1/6 the risk]":
+                envRiskines = 4;
+                break;
+            case "A moving car with the windows rolled down[1/4 the risk]":
+                envRiskines = 8;
+                break;
+            case "A space with one or more sides open the the outdoors[1/4 the risk]":
+                envRiskines = 8;
+                break;
         }
         return envRiskines;
     }
 
     private int getConversationRiskines() {
         int convRiskines=0;
-        if(getSpinnerConversation()=="Not talking(such as quietly riding the train)[1/5 the risk]"){
-            convRiskines=5;
-        }else if(getSpinnerConversation()=="Normal conversation[baseline risk]"){
-            convRiskines=20;
-        }else if(getSpinnerConversation()=="Loud talking(shouting, talking over music, singing)[5x the risk]"){
-            convRiskines=35;
+        switch (getSpinnerConversation()) {
+            case "Not talking(such as quietly riding the train)[1/5 the risk]":
+                convRiskines = 5;
+                break;
+            case "Normal conversation[baseline risk]":
+                convRiskines = 20;
+                break;
+            case "Loud talking(shouting, talking over music, singing)[5x the risk]":
+                convRiskines = 35;
+                break;
         }
         return convRiskines;
     }
 
     private int getDurationRiskines() {
-        int durationRiskines=(getMinuteAroundPeople/30)*6;;
+        int durationRiskines=(getMinuteAroundPeople/10)*5;;
         return durationRiskines;
     }
 
     private int getClosenes() {
         int closenes=0;
-        if(getDistance=="Kissing[2x the risk"){
-            closenes=50;
-        }else if(getDistance=="Close (&lt;1ft apart)[2x the risk]"){
-            closenes=30;
-        }else if(getDistance=="Normal socializing (~3ft apart)[baseline risk]"){
-            closenes=10;
-        }else if(getDistance=="6ft[1/2 the risk]"){
-            closenes=5;
-        }else if(getDistance=="10ft[1/4 the risk]"){
-            closenes=1;
+        switch (getDistance) {
+            case "Kissing[2x the risk]":
+            case "Close (&lt;1ft apart)[2x the risk]":
+                closenes = 20;
+                break;
+            case "Normal socializing (~3ft apart)[baseline risk]":
+                closenes = 10;
+                break;
+            case "6ft[1/2 the risk]":
+                closenes = 5;
+                break;
+            case "10ft[1/4 the risk]":
+                closenes = 1;
+                break;
         }
         return closenes;
     }
 
     public int GetMaskLoad(){
         int MaskLoad=0;
-        if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
-            MaskLoad=5;
-        }
-        else if(getSpinnerYourMask()=="Cotton mask, bandanna, or buff[baseline risk]") {
-            MaskLoad=3;
-        }
-        else if(getSpinnerYourMask()=="Surgical mask or mask with PM2.5 filter insert[1/2 the risk]") {
-            MaskLoad=2;
-        }
-        else if(getSpinnerYourMask()=="Well fitting, well sealed N95 respirator[1/10 the risk]") {
-            MaskLoad=1;
+        switch (getSpinnerYourMask()) {
+            case "No Mask or poorly-worn[baseline risk]":
+                MaskLoad = 5;
+                break;
+            case "Cotton mask, bandanna, or buff[baseline risk]":
+                MaskLoad = 3;
+                break;
+            case "Surgical mask or mask with PM2.5 filter insert[1/2 the risk]":
+                MaskLoad = 2;
+                break;
+            case "Well fitting, well sealed N95 respirator[1/10 the risk]":
+                MaskLoad = 1;
+                break;
         }
         return MaskLoad;
     }public int GetTheirMaskLoad(){
         int MaskLoad=0;
-        if(getSpinnerTheirMask()=="No Mask or poorly-worn[baseline risk]"){
-            MaskLoad=5;
-        }
-        else if(getSpinnerTheirMask()=="Cotton mask, bandanna, or buff[baseline risk]") {
-            MaskLoad=3;
-        }
-        else if(getSpinnerTheirMask()=="Surgical mask or mask with PM2.5 filter insert[1/2 the risk]") {
-            MaskLoad=2;
-        }
-        else if(getSpinnerTheirMask()=="Well fitting, well sealed N95 respirator[1/10 the risk]") {
-            MaskLoad=1;
+        switch (getSpinnerTheirMask()) {
+            case "No Mask or poorly-worn[baseline risk]":
+                MaskLoad = 5;
+                break;
+            case "Cotton mask, bandanna, or buff[baseline risk]":
+                MaskLoad = 3;
+                break;
+            case "Surgical mask or mask with PM2.5 filter insert[1/2 the risk]":
+                MaskLoad = 2;
+                break;
+            case "Well fitting, well sealed N95 respirator[1/10 the risk]":
+                MaskLoad = 1;
+                break;
         }
         return MaskLoad;
     }
