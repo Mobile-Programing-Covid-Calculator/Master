@@ -94,7 +94,29 @@ public class activities_screen extends AppCompatActivity {
         spinnerConversation.setAdapter(conversationAdapter);
 
 }
+    public int selectionPage(){
+        int riskiness=0;
+        int MaskRiskines=GetMaskLoad();
 
+
+        return riskiness;
+    }
+    public int GetMaskLoad(){
+        int MaskLoad=0;
+        if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
+            MaskLoad=5;
+        }
+        else if(getSpinnerYourMask()=="Cotton mask, bandanna, or buff[baseline risk]") {
+            MaskLoad=3;
+        }
+        else if(getSpinnerYourMask()=="Surgical mask or mask with PM2.5 filter insert[1/2 the risk]") {
+            MaskLoad=2;
+        }
+        else if(getSpinnerYourMask()=="Well fitting, well sealed N95 respirator[1/10 the risk]") {
+            MaskLoad=1;
+        }
+        return MaskLoad;
+    }
 
     //Getters for spinner
     public String getSpinnerVentilation() {
@@ -121,32 +143,7 @@ public class activities_screen extends AppCompatActivity {
         return text;
     }
 
-    public int selectionPage(){
-        int riskiness=0;
-        if(getSpinnerYourMask()=="No Mask or poorly-worn[baseline risk]"){
-            riskiness=riskiness+15;
-        }
-        else if(getSpinnerYourMask()=="Cotton mask, bandanna, or buff[baseline risk]") {
-            riskiness+=8;
-        }
-        else if(getSpinnerYourMask()=="Surgical mask or mask with PM2.5 filter insert[1/2 the risk]") {
-            riskiness+=2;
-        }
-        else if(getSpinnerYourMask()=="Well fitting, well sealed N95 respirator[1/10 the risk]") {
-            //riskiness doesn't change
-        }
-        int test = spinnerConversation.getSelectedItemPosition();
-        //String testS = Integer.toString(test);
-        if(spinnerConversation.getSelectedItemPosition()==3){
-                counter++;
-                openBadResultsPage();
-            }
-            else{
-                openGoodResultsPage();
-            }
 
-    return riskiness;
-    }
 
 
     public void openBadResultsPage(){
