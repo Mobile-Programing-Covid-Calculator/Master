@@ -94,8 +94,7 @@ public class activities_screen extends AppCompatActivity {
 }
     public int selectionPage(){
         int riskiness=0;
-        riskiness= getClosenes()+getDurationRiskines()+(GetMaskLoad()*getNumPeopleAround*GetTheirMaskLoad())
-                +getConversationRiskines()+getEnvironmentRiskines();
+        riskiness= getClosenes()+(int) getDurationRiskines()+(GetMaskLoad()*getNumPeopleAround*GetTheirMaskLoad())+getConversationRiskines()+getEnvironmentRiskines();
         Log.d("numpeople", String.valueOf(getNumPeopleAround));
         Log.d("getClosenes()", String.valueOf(getClosenes()));
         Log.d("getDurationRiskines()", String.valueOf(getDurationRiskines()));
@@ -136,27 +135,30 @@ public class activities_screen extends AppCompatActivity {
         int convRiskines=0;
         switch (getSpinnerConversation()) {
             case "Not talking(such as quietly riding the train)[1/5 the risk]":
-                convRiskines = 5;
+                convRiskines = 2;
                 break;
             case "Normal conversation[baseline risk]":
-                convRiskines = 20;
+                convRiskines = 2;
                 break;
             case "Loud talking(shouting, talking over music, singing)[5x the risk]":
-                convRiskines = 35;
+                convRiskines = 10;
                 break;
         }
         return convRiskines;
     }
 
-    private int getDurationRiskines() {
-        int durationRiskines=(getMinuteAroundPeople/10)*5;;
+    private double getDurationRiskines() {
+        double durationRiskines=0;
+        durationRiskines = (getMinuteAroundPeople/10.0)*5;
         return durationRiskines;
     }
 
     private int getClosenes() {
         int closenes=0;
         switch (getDistance) {
-            case "Kissing[2x the risk]":
+            case "Kissing [2x the risk]":
+                closenes = 25;
+                break;
             case "Close (&lt;1ft apart)[2x the risk]":
                 closenes = 20;
                 break;
@@ -176,14 +178,14 @@ public class activities_screen extends AppCompatActivity {
     public int GetMaskLoad(){
         int MaskLoad=0;
         switch (getSpinnerYourMask()) {
-            case "No Mask or poorly-worn[baseline risk]":
-                MaskLoad = 5;
+            case "No Mask or poorly-worn mask[baseline risk]":
+                MaskLoad = 15;
                 break;
             case "Cotton mask, bandanna, or buff[baseline risk]":
-                MaskLoad = 3;
+                MaskLoad = 8;
                 break;
             case "Surgical mask or mask with PM2.5 filter insert[1/2 the risk]":
-                MaskLoad = 2;
+                MaskLoad = 7;
                 break;
             case "Well fitting, well sealed N95 respirator[1/10 the risk]":
                 MaskLoad = 1;
@@ -193,14 +195,14 @@ public class activities_screen extends AppCompatActivity {
     }public int GetTheirMaskLoad(){
         int MaskLoad=0;
         switch (getSpinnerTheirMask()) {
-            case "No Mask or poorly-worn[baseline risk]":
-                MaskLoad = 5;
+            case "No Mask or poorly-worn mask[baseline risk]":
+                MaskLoad = 15;
                 break;
             case "Cotton mask, bandanna, or buff[baseline risk]":
-                MaskLoad = 3;
+                MaskLoad = 8;
                 break;
             case "Surgical mask or mask with PM2.5 filter insert[1/2 the risk]":
-                MaskLoad = 2;
+                MaskLoad = 7;
                 break;
             case "Well fitting, well sealed N95 respirator[1/10 the risk]":
                 MaskLoad = 1;
