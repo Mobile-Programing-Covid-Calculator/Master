@@ -198,12 +198,11 @@ public class activities_screen extends AppCompatActivity {
         return text;
     }
 
-    public void selectionPage(){
-
+    public int selectionPage(){
         //String text = getSpinnerConversation();
        // Log.d("getSpinnerConvo", text);
         int test = spinnerConversation.getSelectedItemPosition();
-        String testS = Integer.toString(test);
+        //String testS = Integer.toString(test);
         if(spinnerConversation.getSelectedItemPosition()==3){
                 counter++;
                 openBadResultsPage();
